@@ -65,11 +65,19 @@ section#ny>picture>img{
 }
 section#Roma{
     text-align: center;
-    box-sizing: border-box;
 }
 section#Passagens{
     background-color: aqua;
-    height: 200px;
+    height: 30vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+div#passagens{
+    background-color: blueviolet;
+    width: 500px;
+    text-align: center;
+    padding: 10px;
 }
 picture{
     display: flex;
@@ -94,12 +102,16 @@ a#pass{
     font-size: 1.5em;
     background-color: #164773;
     border-radius: 12px;
-    padding: 10px;
+    padding: 5px;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
 }
 a#pass:hover{
     font-weight: 600;
     color: white;
-    padding: 12px;
+    padding: 7px;
     background-color: #003461;
 }
 a#logo{

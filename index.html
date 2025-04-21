@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
     <header>
@@ -34,10 +36,39 @@
                 <section id="Roma">
                     <h3>Coliseu de Roma</h3>
                     <p id="leg">"Onde a história ganha vida e cada pedra conta uma batalha!"</p>
-                    <a id="pass" href="Passagens.html">Descubra os melhores lugares do mundo em um só clique</a>
+                    <a id="pass" href="viagens.html">Descubra os melhores lugares do mundo em um só clique</a>
                 </section>
         </section>
         <section id="Passagens">
+            <div id="passagens">
+                <form action="">
+                    <label for="CityV">Origem:</label>
+                    <select name="iCity" id="CityV">
+                        <option value="Ft">Fortaleza</option>
+                        <option value="Mn">Maracanau</option>
+                        <option value="Bh">Bahia</option>
+                        <option value="Rj">Rio de Janeiro</option>
+                        <option value="SP">São Paulo</option>
+                    </select>
+                    <label for="CityI">Destino:</label>
+                    <select name="iCityi" id="Cityi">
+                        <option value="NY">Nova York</option>
+                        <option value="RM">Coliseu da Roma</option>
+                        <option value="Bg">Belgica</option>
+                        <option value="Fç">França</option>
+                        <option value="Pr">Paris</option>
+                    </select> <br>
+                    <input id="datas" placeholder="Escolha a ida e volta" style="padding: 10px; font-size: 1.2em;">
+                    <script>
+                        flatpickr("#datas", {
+                        mode: "range",
+                        dateFormat: "d/m/Y"
+                        });
+                    </script>
+                    <input type="submit" value="Enviar">  
+                    <input type="reset" value="Limpar"> 
+                </form>
+            </div>
             </section>
         <section id="Familia">
             <h2>Quem viaja com a Skyline, recomenda!</h2>
