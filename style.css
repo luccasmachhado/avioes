@@ -67,17 +67,94 @@ section#Roma{
     text-align: center;
 }
 section#Passagens{
-    background-color: aqua;
+    background-color: #012a4e;
     height: 30vh;
     display: flex; 
     justify-content: center; 
     align-items: center;
 }
-div#passagens{
-    background-color: blueviolet;
-    width: 500px;
-    text-align: center;
+section#passg{
+    width: 700px;
     padding: 10px;
+    margin: 10px;
+    background-color: #00203b;
+    box-shadow: 1px 13px 60px rgba(0, 0, 0, 0.664);
+    text-align: center;
+}
+section#Familia{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 20px;  
+    max-width: 95vw;
+    min-width: 84vw;
+}
+section#Familia>h2{
+    color: white;
+    border-radius: 0px;
+    background-color: #012340;
+    padding: 15px;
+    font-size: 2em;
+}
+section#family{
+    border-radius: 12px;
+    box-shadow: 7px 19px 116px rgba(0, 0, 0, 0.199);
+    padding: 20px;
+    margin: 10px;
+}
+
+section#family>picture>img{
+    width: 85%;
+    max-height: 700px;
+    min-height: 200px;
+    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.705);
+}
+
+section#Planos{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 20px;  
+}
+section#Planos>h2{
+    color: white;
+    border-radius: 0px;
+    background-color: #012340;
+    padding: 15px;
+    font-size: 2em;
+}
+section#planos2{
+    border-radius: 12px;
+    box-shadow: inset 7px 19px 116px rgba(0, 0, 0, 0.199);
+    padding: 20px;
+    margin: 10px;
+}
+section#planos2>p{
+    font-size: 1.3em;
+    text-align: left;
+}
+section#planosOpc{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+    background-color: #003461;
+
+}
+div#planosFic{
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+}
+@media(max-width:768px){
+    section#planosOpc{
+        flex-direction: column;
+    }
+}
+section#planosOpc>div#planosFic>img{
+    width: 300px;
+    height: 295px;
+    border-radius: 100%;
+    box-shadow:  7px 19px 116px rgba(0, 0, 0, 0.199);
 }
 picture{
     display: flex;
