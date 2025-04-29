@@ -23,7 +23,7 @@ nav#menu>a{
     margin: 15px;
 }
 section#Logo{
-    background: url("Imagens/PapeldeParede.jpg");
+    background: url("Imagens/PapeldeParedeLogo3.webp");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,13 +58,15 @@ section#ny,#Roma>h3{
     text-align: left;
 }
 section#ny>picture>img{
-    width: 98%;
-    max-height: 500px;
-    min-height: 200px;
+    width: 90%;
     box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.705);
 }
 section#Roma{
     text-align: center;
+}
+section#Roma>picture>img{
+    width: 90%;
+    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.705);
 }
 section#Passagens{
     background-color: #012a4e;
@@ -138,6 +140,27 @@ section#planosOpc{
     background-color: #003461;
 
 }
+section#Promo{
+    background: url("Imagens/PapeldeParedeSol.jpg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    height: 90%;
+}
+section#Promo>h2{
+    font-size: 2.5em;
+    padding: 20px;
+    color: white;
+    margin: 10px;
+    transform: translate(0%,20%);
+}
+div#textpromo0{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+}
+
 div#planosFic{
     flex: 1;
     min-width: 250px;
@@ -145,7 +168,15 @@ div#planosFic{
     text-align: center;
     margin: auto;
 }
+.textp{
+    font-size: 1.5em;
+    text-align: center;
+    padding: 20px;
+}
 @media(max-width:768px){
+    div#textpromo0{
+        flex-direction: column;
+    }
     section#planosOpc{
         flex-direction: column;
     }
