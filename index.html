@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="Imagens/Logoi2.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+
 </head>
 <body>
     <header>
@@ -18,13 +20,11 @@
         <a class="opc" href="#">Sobre</a>
         <a class="opc" href="#">Login</a>
     </nav>
+    <picture>
+        <img src="Imagens/Logo.png" alt="Logo">
+    </picture>
     </header>
     <main>
-        <section id="Logo">
-            <picture>
-                <img src="Imagens/Logo.png" alt="Logo">
-            </picture>
-        </section>
         <section id="Viagens">
                 <h2>Seu próximo destino inesquecível começa aqui</h2>
                 <section id="ny">
@@ -44,42 +44,53 @@
                 </section>
         </section>
         <section id="Passagens">
-            <section id="passg">
-                <form action="">
-                    <label for="CityV">Origem:</label>
-                    <select name="iCity" id="CityV">
-                        <option value="Ft">Fortaleza</option>
-                        <option value="Mn">Maracanau</option>
-                        <option value="Bh">Bahia</option>
-                        <option value="Rj">Rio de Janeiro</option>
-                        <option value="SP">São Paulo</option>
-                    </select>
-                    <label for="CityI">Destino:</label>
-                    <select name="iCityi" id="Cityi">
+            <form action="passagens.php" method="get">
+                <div class="passg">
+                    <div id="origem">
+                        <label for="CityV"></label>
+                        <select name="iCity" id="Cityv">
+                        <option  value="Op">Origem</option>
+                        <option  value="Ft">Fortaleza</option>
+                        <option  value="Mn">Maracanau</option>
+                        <option  value="Bh">Bahia</option>
+                        <option  value="Rj">Rio de Janeiro</option>
+                        <option  value="SP">São Paulo</option>
+                        </select>
+                    </div>
+                    <div id="destino">
+                        <label for="CityI"></label>
+                        <select name="iCityi" id="Cityi">
+                        <option value="">Destino</option>
                         <option value="NY">Nova York</option>
                         <option value="RM">Coliseu da Roma</option>
                         <option value="Bg">Belgica</option>
                         <option value="Fç">França</option>
                         <option value="Pr">Paris</option>
-                    </select> <br>
-                    <input id="datas" placeholder="Escolha a ida e volta" style="padding: 10px; font-size: 1.2em;">
-                    <script>
+                    </select>
+                    </div>
+                    <div id="idavolta">
+                        <input id="datas" placeholder="Ida e Volta">
+                        <script>
                         flatpickr("#datas", {
                         mode: "range",
-                        dateFormat: "d/m/Y"
+                        dateFormat: "d/m/Y",
+                        locale: "pt"
                         });
-                    </script>
-                    <input type="submit" value="Enviar">  
-                    <input type="reset" value="Limpar"> 
-                </form>
-            </section> 
+                        </script>
+                    </div>
+                    <div id="button">
+                        <button type="submit"><img src="Imagens/icon-search.svg" alt=""></button>                            
+                    </div>
+                </div>
+
+                    </form>
             </section>
         <section id="Familia">
             <h2>Quem viaja com a Skyline, recomenda!</h2>
             <br>
             <section id="family">
                 <picture>
-                    <img src="Imagens/familia.jpg" alt="familia">
+                    <img src="Imagens/familia.avif" alt="familia">
                 </picture>
                 <p id="leg">"Viajar com a Skyline foi incrível! Fomos muito bem atendidos desde o início, e o Plano Família foi perfeito pra nós. Nosso filho é autista e ficou super à vontade graças ao cuidado e à atenção da equipe. Tudo foi feito com carinho, conforto e respeito. Com certeza, a Skyline fez dessa viagem algo inesquecível!" <br>
                 — Família Oliveira, São Paulo/SP</p>

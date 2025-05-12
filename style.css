@@ -13,40 +13,33 @@
 
 /* ======================== CABEÇALHO E MENU ======================== */
 header {
-    width: 100%;
-    height: 100%;
+    background: url("Imagens/fundo.webp") no-repeat fixed;
+    background-position: right center;
+    background-size: cover;
+    height: 90vh;
+    text-align: center;
+    image-rendering: auto;
 }
-
+header > picture > img {
+    width: 400px;
+    margin: 70px;
+}
+header> h2 {
+    text-align: center;
+}
 nav {
-    background-color: #012a4e;
+    top: 50%;
     text-align: center;
     padding: 20px;
     max-height: 15vh;
     min-height: 10vh;
+    box-shadow: inset 5px 5px 50px rgba(0, 0, 0, 0.445);
 }
 
 nav#menu > a {
     padding: 15px;
     margin: 15px;
 }
-
-/* ======================== LOGO ======================== */
-section#Logo {
-    background: url("Imagens/PapeldeParedeLogo3.webp") no-repeat fixed;
-    background-size: cover;
-    height: 80vh;
-    text-align: center;
-}
-
-section#Logo > picture > img {
-    width: 400px;
-    margin: 70px;
-}
-
-section#Logo > h2 {
-    text-align: center;
-}
-
 /* ======================== SEÇÃO VIAGENS ======================== */
 section#Viagens {
     background-color: white;
@@ -81,21 +74,72 @@ section#Roma {
 
 /* ======================== SEÇÃO PASSAGENS ======================== */
 section#Passagens {
-    background-color: #012a4e;
     height: 30vh;
+    background-color: #012a4e;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-section#passg {
-    width: 700px;
-    padding: 10px;
-    margin: 10px;
-    background-color: #00203b;
-    text-align: center;
-    box-shadow: 1px 13px 60px rgba(0, 0, 0, 0.664);
+form>.passg{
+   display: flex;
+   width: 80vw;
+   padding: 25px;
+   justify-content: space-evenly;
+   background-color: white;
+   border-radius: 15px;
 }
+div#origem,#destino,#idavolta{
+    display: flex;
+    flex-direction: column;
+}
+select,input#datas{
+    width: 300px;
+    padding: 10px;
+    margin: 3px;
+    transition: 0.3s;
+    border-radius: 20px;
+    background-color: #00000011;
+    border: solid 1px #00000046;
+    text-align: left;
+    font-size:18px;
+    font-family: "Inria Sans", sans-serif;
+
+}
+select:hover{
+    font-size: 21px;
+    width: 350px;
+}
+input#datas:hover{
+    font-size: 21px;
+    width: 350px;
+}
+::placeholder{
+    color: black;
+}
+option::before{
+    text-align: left;
+}
+button{
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    background-image: linear-gradient(to right,#2a27b8,#0B60CA,#0CA4F4);
+    transition: 0.2s;
+}
+button:hover{
+    background-image: linear-gradient(to left,#2a27b8,#0B60CA,#0CA4F4);
+    width: 55px;
+    height: 55px;
+
+}
+div#button{
+    padding-left: 10px;
+}
+button>img{
+    width: 35px;
+}
+
 
 /* ======================== SEÇÃO FAMÍLIA ======================== */
 section#Familia {
@@ -163,9 +207,20 @@ section#planosOpc {
 
 section#planosOpc > div#planosFic > img {
     width: 300px;
-    height: 295px;
+    height: 300px;
     border-radius: 100%;
     box-shadow: 7px 19px 116px rgba(0, 0, 0, 0.199);
+    object-fit: cover;
+}
+div#planosFic {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+}
+div#planosFic>h3{
+    text-align: center;
 }
 
 /* ======================== SEÇÃO PROMOÇÃO ======================== */
@@ -187,16 +242,8 @@ div#textpromo0 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-}
 
-div#planosFic {
-    flex: 1;
-    min-width: 250px;
-    padding: 20px;
-    text-align: center;
-    margin: auto;
 }
-
 /* ======================== TEXTOS ======================== */
 .textp {
     font-size: 1.5em;
@@ -250,8 +297,6 @@ a {
 
 a:hover {
     font-weight: bold;
-    background-color: white;
-    color: #012a4e;
     padding: 12px;
 }
 
@@ -288,5 +333,39 @@ picture {
     div#textpromo0,
     section#planosOpc {
         flex-direction: column;
+    }
+    header{
+        height: 100vh;
+    }
+    form>.passg{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 60vh;
+        width: 70vw;
+    }
+    form>.passg>div#enli{
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+    }
+    select,input#datas{
+        width: 310px;
+        transition: 0.1s;
+    }
+    select:hover{
+        width: 311px;
+    }
+    input#datas:hover{
+        width: 311px;
+    }
+    button{
+        width: 99%;
+    }
+    button:hover{
+        width: 100%;
+    }
+    section#Passagens{
+        height: 70vh;
     }
 }
