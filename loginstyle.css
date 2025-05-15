@@ -1,0 +1,156 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+*{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+body{
+    background-image: url("Imagens/papeldeparedelogin.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    image-rendering: auto;
+    height: 100vh;
+}
+form{
+    display: flex;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 450px;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.596);
+    box-shadow: inset 5px 5px 50px rgba(0, 0, 0, 0.644);
+    border-radius: 25px;
+    }
+form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+form#cad{
+    height: 500px;
+}
+form#cad>input{
+    width: 290px;
+    margin: 12px;
+}
+form#cad>input#entra{
+    width: 291px;
+}
+nav {
+    top: 50%;
+    text-align: center;
+    padding: 20px;
+    height: 11vh;
+    background-color: rgba(0, 0, 0, 0.445);
+    box-shadow: inset 5px 5px 50px rgba(0, 0, 0, 0.445);
+}
+
+nav#menu > a {
+    padding: 15px;
+    margin: 15px;
+}
+input{
+    margin: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    width: 270px;
+    height: 60px;
+    outline: none;
+    font-size: 15px;
+    font-family: "Inria Sans", sans-serif;
+    font-weight: normal;
+    background-color: white;
+}
+input#entra{
+    margin-top: 20px;
+    font-family: "Inria Sans", sans-serif;
+    transition: 0.2s;
+    font-size: 20px;
+    margin: 10px;
+    padding: 15px;
+    width: 270px;
+    height: 60px;
+    border: none;
+    border-radius: 15px;
+    color: black;
+}
+input#entra:hover{
+    color: white;
+    background-color: black;
+    width: 275px;
+    height: 61px;
+    font-size: 22px;
+}
+a{
+    color: black;
+    text-decoration: none;
+    position: relative;
+}
+a:hover{
+    color: white;
+}
+picture{
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 40%;
+}
+@media (max-width: 768px) {
+    body{
+        background-position: top center;
+    }
+    nav{
+        height: 14vh;
+    }
+    a{
+        margin: 10px;
+    }
+    form{
+        top: 58%;
+    }
+    form#cad{
+        width: 280px;
+    }
+    form#cad>input{
+        width: 250px;
+    }
+    form#cad>input#entra:hover{
+        width: 253px;
+    }
+}
+p,a#cad{
+    font-family: "Inria Sans", sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 10px;
+}
+a#cad{
+    margin: 10px;
+}
+a#cad:hover{
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+.opc{
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    font-family: "Inria Sans", sans-serif;
+
+}
+.opc:hover {
+    font-weight: bold;
+    padding: 12px;
+}

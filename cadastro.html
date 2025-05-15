@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="shortcut icon" href="Imagens/Logoi2.ico" type="image/x-icon">
+</head>
+<body>
+     <header>
+        <nav id="menu">
+        <a class="opc" href="Passagens.html">Passagens</a>
+        <a class="opc" href="#">Promoções</a>
+        <a class="opc" href="#">Viagens</a>
+        <a class="opc" href="#">Sobre</a>
+    </nav>
+    </header>
+    <div>
+        <form action="cadastro.php" method="post" id="cad">
+            <label for="NomeC"></label>
+            <input type="text" id="NomeC" required minlength="6" maxlength="50" placeholder="Nome Completo">
+            <label for="cpfc"></label>
+            <input type="text" id="cpfc" required maxlength="11" placeholder="CPF">
+            <label for="datac"></label>
+            <input type="date" id="datac" required value="1950-01-01">
+            <label for="emailc"></label>
+            <input type="email" id="emailc" required placeholder="Email">
+            <label for="senhac"></label>
+            <input type="password" id="senhac" required minlength="6" maxlength="12" placeholder="Senha">
+            <input type="submit" id="entra" value="Cadastrar">
+        </form>
+    </div>
+</body>
+</html>

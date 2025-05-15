@@ -33,6 +33,7 @@ nav {
     padding: 20px;
     max-height: 15vh;
     min-height: 10vh;
+    background-color: rgba(0, 0, 0, 0.445);
     box-shadow: inset 5px 5px 50px rgba(0, 0, 0, 0.445);
 }
 
@@ -103,21 +104,20 @@ select,input#datas{
     text-align: left;
     font-size:18px;
     font-family: "Inria Sans", sans-serif;
+    outline: none;
 
 }
 select:hover{
     font-size: 21px;
     width: 350px;
 }
+
 input#datas:hover{
     font-size: 21px;
     width: 350px;
 }
 ::placeholder{
     color: black;
-}
-option::before{
-    text-align: left;
 }
 button{
     width: 50px;
@@ -364,6 +364,9 @@ picture {
     }
     button:hover{
         width: 100%;
+    }
+    button>img:hover{
+        width: 37px;
     }
     section#Passagens{
         height: 70vh;
