@@ -19,15 +19,15 @@
     <div>
         <form action="cadastro.php" method="post" id="cad">
             <label for="NomeC"></label>
-            <input type="text" id="NomeC" required minlength="6" maxlength="50" placeholder="Nome Completo">
+            <input class="blur" type="text" id="NomeC" required minlength="6" maxlength="50" placeholder="Nome Completo">
             <label for="cpfc"></label>
-            <input type="text" id="cpfc" required maxlength="11" placeholder="CPF">
+            <input class="blur" type="text" id="cpfc" required maxlength="11" placeholder="CPF">
             <label for="datac"></label>
-            <input type="date" id="datac" required value="1950-01-01">
+            <input class="blur" type="date" id="datac" required value="1950-01-01">
             <label for="emailc"></label>
-            <input type="email" id="emailc" required placeholder="Email">
+            <input class="blur" type="email" id="emailc" required placeholder="Email">
             <label for="senhac"></label>
-            <input type="password" id="senhac" required minlength="6" maxlength="12" placeholder="Senha">
+            <input class="blur" type="password" id="senhac" required maxlength="12" minlength="6" placeholder="Senha">
             <input type="submit" id="entra" value="Cadastrar">
         </form>
     </div>

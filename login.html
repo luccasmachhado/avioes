@@ -19,14 +19,14 @@
     </nav>
     </header>
     <div>
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" class="login">
             <picture>
                 <img src="Imagens/Logo.png" alt="">
             </picture>
             <label for="CPF"></label>
-            <input type="text" required maxlength="11" autocomplete="on" placeholder="CPF">
+            <input class="blur" type="text" required maxlength="11" autocomplete="on" placeholder="CPF">
             <label for="senha"></label>
-            <input type="password" id="senha" placeholder="Senha" required minlength="6" maxlength="12">
+            <input class="blur" type="password" id="senha" placeholder="Senha" required minlength="6" maxlength="12">
             <input type="submit" id="entra" value="Entrar">
             <p>Você não tem cadastro?<a id="cad" href="cadastro.html">Faça Aqui</a></p>
         </form>
