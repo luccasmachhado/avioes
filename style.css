@@ -46,6 +46,7 @@ section#Viagens {
     background-color: white;
     color: black;
     padding: 15px;
+
 }
 
 section#Viagens > h2 {
@@ -58,20 +59,44 @@ section#Viagens > h2 {
 section#ny,
 #Roma {
     border-radius: 12px;
-    box-shadow: 7px 19px 116px rgba(0, 0, 0, 0.199);
     padding: 20px;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-section#ny > picture > img,
-section#Roma > picture > img {
-    width: 90%;
-    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.705);
+section#ny>a:hover{
+    padding: 0px;
+    font-weight: normal;
 }
 
 section#Roma {
     text-align: center;
 }
+button#desny{
+    background-image: url("Imagens/Nova\ York.butaojpg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    image-rendering: auto;
+}
+button#descr{
+    background-image: url("Imagens/coliseuderomabutao.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+.des{
+    width: 80vw;
+    height: 50vh;
+    transition: all 0.5s;
+    margin: 10px;
+}
+.des:hover{
+    width: 82vw;
+    height: 52vh;
+}
+
 
 /* ======================== SEÇÃO PASSAGENS ======================== */
 section#Passagens {
@@ -85,6 +110,7 @@ form>.passg{
    display: flex;
    width: 80vw;
    padding: 25px;
+    box-shadow: -20px 25px 100px rgb(0, 0, 0);
    justify-content: space-evenly;
    background-color: white;
    border-radius: 15px;
@@ -124,11 +150,10 @@ button{
     height: 50px;
     border-radius: 15px;
     border: none;
-    background-image: linear-gradient(to right,#2a27b8,#0B60CA,#0CA4F4);
     transition: 0.2s;
+    background-color: #003461;
 }
 button:hover{
-    background-image: linear-gradient(to left,#2a27b8,#0B60CA,#0CA4F4);
     width: 55px;
     height: 55px;
 
@@ -199,33 +224,75 @@ section#planos2 > p {
 
 /* ======================== PLANOS OPCIONAIS ======================== */
 section#planosOpc {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
     background-color: #003461;
+    display: flex;
+    justify-content: center;
+    height: 102vh;
+   
+    
 }
-
-section#planosOpc > div#planosFic > img {
+.planosfic{
+    border: 5px solid white;
+    border-radius: 50px;
+    background-color: #164773;
+    margin: 20px;
+    width: 50vw;
+    height: 95vh;
+    transition: all 0.3s;
+    transition-timing-function: ease-in;
+    transition-delay: 0.1s;
+}
+.planosfic>picture>img{
     width: 300px;
-    height: 300px;
-    border-radius: 100%;
-    box-shadow: 7px 19px 116px rgba(0, 0, 0, 0.199);
-    object-fit: cover;
-}
-div#planosFic {
-    flex: 1;
-    min-width: 250px;
-    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.3s;
+    transition-timing-function: ease-in;
+    transition-delay: 0.1s;
+} 
+.planosfic>h3{
     text-align: center;
-    margin: auto;
+    color: white;
 }
-div#planosFic>h3{
-    text-align: center;
+.planosfic:hover{
+    width: 51vw;
+    height: 96vh;
+    border: 10px solid white;
+    background-color: #1b588d;
+    box-shadow: inset 5px 10px 90px rgba(245, 245, 245, 0.103);
+}
+.planosfic:hover img{
+    width: 310px;
+}
+.planosfic:hover ul{
+    margin-left: 10%;
+     transition: all 0.3s;
+    transition-timing-function: ease-in;
+    transition-delay: 0.1s;
+}
+.planosfic:hover li{
+    font-size: 20px;
+    padding: 7px;
+    transition: all 0.3s;
+    transition-timing-function: ease-in;
+    transition-delay: 0.1s;
+}
+ul{
+    list-style-position: inside;
+    margin: 30px;
+    margin-left: 12%;
+}
+li{
+    font-size: 1.2em;
+    padding: 5px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: justify;
+
 }
 
 /* ======================== SEÇÃO PROMOÇÃO ======================== */
 section#Promo {
-    background: url("Imagens/PapeldeParedeSol.jpg") no-repeat left center;
+    background: url("Imagens/PapeldeParedeNovayork.webp") no-repeat left center;
     background-size: cover;
     color: white;
     height: 90%;
@@ -330,11 +397,20 @@ picture {
 
 /* ======================== RESPONSIVIDADE ======================== */
 @media (max-width: 768px) {
-    div#textpromo0,
-    section#planosOpc {
-        flex-direction: column;
-    }
     header{
+        height: 100vh;
+        
+    }
+    section#planosOpc{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 300vh;
+    }
+    .planosfic{
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
         height: 100vh;
     }
     form>.passg{
@@ -371,4 +447,52 @@ picture {
     section#Passagens{
         height: 70vh;
     }
+    button#desny{
+        background-size: cover;
+
+    }
+    .des{
+        background-size: cover;
+        height: 30vh;
+    }
+    .des:hover{
+        height: 32vh;
+    }
+    
+ul{
+    list-style-position: inside;
+    margin: 15px;
+    margin-left: 10%;
+}
+li{
+    font-size: 1.3em;
+    padding: 5px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: left;
+
+}
+.planosfic:hover{
+    width: 71vw;
+    height: 96vh;
+    border: 10px solid white;
+    box-shadow: inset 3px 5px 90px rgba(245, 245, 245, 0.048);
+
+}
+.planosfic:hover img{
+    width: 308px;
+}
+.planosfic:hover ul{
+    margin-left: 10%;
+     transition: all 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.1s;
+}
+.planosfic:hover li{
+    font-size: 20px;
+    padding: 7px;
+    transition: all 0.6s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.1s;
+}
 }
