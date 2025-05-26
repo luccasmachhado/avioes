@@ -1,8 +1,8 @@
 /* ======================== IMPORTAÇÕES ======================== */
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
 
 /* ======================== RESET GERAL ======================== */
 * {
@@ -33,25 +33,25 @@ nav {
     text-align: right;
     padding: 10px;
     height: 17vh;
-    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.712),transparent);
+    background-image: linear-gradient(to bottom,#000000d8 5%,transparent);
 
 }
 
 nav#menu > a {
     padding: 15px;
     margin: 15px;
-    border: 2px solid white;
-    background-color: rgba(245, 245, 245, 0.192);
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.212);
     border-radius: 15px;
     box-sizing: border-box;
     min-width: 150px; 
     min-height: 50px;
     text-align: center;
-    transition:  0.6s;
+    transition:  0.4s;
 }
 nav#menu a:hover{
     font-size: 1.3em;
-    border: 3px solid white;
+    border: 2px solid white;
     background-color: rgba(245, 245, 245, 0.247);
     font-weight: normal;
 
@@ -151,7 +151,7 @@ select,input#datas{
     border: solid 1px #00000046;
     text-align: left;
     font-size:18px;
-    font-family: "Inria Sans", sans-serif;
+    font-family: "Noto Sans", sans-serif;
     outline: none;
 
 }
@@ -204,6 +204,14 @@ section#Familia > h2 {
 }
 
 section#family {
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+section#family2{
     padding: 20px;
     margin: 10px;
     display: flex;
@@ -311,7 +319,7 @@ ul{
 li{
     font-size: 1.2em;
     padding: 5px 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Noto Sans", sans-serif;
     color: white;
     text-align: justify;
 
@@ -354,10 +362,10 @@ p {
 }
 
 p#leg {
-    font-family: "Playfair Display", serif;
+    font-family: "Noto Sans", sans-serif;
     font-style: normal;
-    font-size: 1.6em;
-    line-height: 40px;
+    font-size: 1.4em;
+    line-height: 35px;
     border-radius: 12px;
     width: 600px;
     
@@ -366,12 +374,13 @@ p#leg {
 
 /* ======================== TÍTULOS ======================== */
 h2 {
-    font-family: "Inria Sans", sans-serif;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
 }
 
 h3 {
     font-size: 2.3em;
-    font-family: "Kanit", sans-serif;
+    font-family: "Heebo", sans-serif;
     font-weight: normal;
     padding: 10px;
     text-align: left;
@@ -380,7 +389,7 @@ h3 {
 /* ======================== LINKS ======================== */
 a {
     font-size: 1.2em;
-    font-family: "Inria Sans", sans-serif;
+    font-family: "Inter", sans-serif;
     text-decoration: none;
     color: white;
 }
@@ -440,6 +449,11 @@ picture {
         flex-direction: column-reverse;
         height: 140vh;
     }
+    
+    section#family2{
+        flex-direction: column;
+        height: 140vh;
+    }
     .family1{
         width: 90vw;
         height: 70vh;
@@ -447,11 +461,19 @@ picture {
     img#imgfamily{
         width: 100%;
         height: 70%;
+        box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.952);
+
     }
     section#family p#leg{
         font-size: 1.5em;
         line-height: 40px;
-        padding: 40px;
+        padding: 20px;
+    }
+    
+    section#family2 p#leg{
+        font-size: 1.5em;
+        line-height: 40px;
+        padding: 20px;
     }
     section#planosOpc{
         display: flex;
