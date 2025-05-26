@@ -14,9 +14,9 @@
 /* ======================== CABEÇALHO E MENU ======================== */
 header {
     background: url("Imagens/fundo.webp") no-repeat fixed;
-    background-position: right center;
+    background-position: right left;
     background-size: cover;
-    height: 90vh;
+    height: 100vh;
     text-align: center;
     image-rendering: auto;
 }
@@ -28,19 +28,35 @@ header> h2 {
     text-align: center;
 }
 nav {
-    top: 50%;
-    text-align: center;
-    padding: 20px;
-    max-height: 15vh;
-    min-height: 10vh;
-    background-color: rgba(0, 0, 0, 0.445);
-    box-shadow: inset 5px 5px 50px rgba(0, 0, 0, 0.445);
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    padding: 10px;
+    height: 17vh;
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.712),transparent);
+
 }
 
 nav#menu > a {
     padding: 15px;
     margin: 15px;
+    border: 2px solid white;
+    background-color: rgba(245, 245, 245, 0.192);
+    border-radius: 15px;
+    box-sizing: border-box;
+    min-width: 150px; 
+    min-height: 50px;
+    text-align: center;
+    transition:  0.6s;
 }
+nav#menu a:hover{
+    font-size: 1.3em;
+    border: 3px solid white;
+    background-color: rgba(245, 245, 245, 0.247);
+    font-weight: normal;
+
+}
+
 /* ======================== SEÇÃO VIAGENS ======================== */
 section#Viagens {
     background-color: white;
@@ -405,8 +421,20 @@ picture {
 /* ======================== RESPONSIVIDADE ======================== */
 @media (max-width: 768px) {
     header{
-        height: 100vh;
-        
+        height: 120vh;
+    }
+    nav#menu{
+        background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.788),transparent);
+        height: 30vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+    nav#menu a{
+        padding: 10px;
+        margin: auto;
+        width: 150px;
+        height: 30px;
     }
     section#family{
         flex-direction: column-reverse;

@@ -1,80 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destinos de Viagem</title>
-    <link rel="stylesheet" href="viagenstyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&family=Kanit:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinos de Viagem</title>
+  <link rel="stylesheet" href="viagenstyle.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inria+Sans&family=Kanit:wght@400;600&family=Playfair+Display&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
+  <header>
+    <nav id="menu">
+      <a class="opc" href="Passagens.html">Passagens</a>
+      <a class="opc" href="#">Viagens</a>
+      <a class="opc" href="#">Sobre</a>
+      <a class="opc" href="login.html">Login</a>
+    </nav>
+  </header>
 
-    <h1>Seus Próximos Destinos Inesquecíveis</h1>
+  <h1 id="inicio">Descubra Destinos Incríveis pelo Mundo</h1>
 
-    <section id="planosOpc">
-        
-        <div id="planosFic">
-            <h3>Nova York</h3>
-            <img src="imgviagens/novayork.jpg" alt="Cidade de Nova York">
-            <p>Explore a cidade que nunca dorme! Cultura, liberdade e atrações incríveis.</p>
-            <ul>
-                <li>Central Park</li>
-                <li>Estátua da Liberdade</li>
-                <li>Times Square</li>
-                <li>Empire State Building</li>
-            </ul>
-        </div>
+  <section class="container" id="destinos">
 
-        <div id="planosFic">
-            <h3>Roma</h3>
-            <img src="imgviagens/roma.jpg" alt="Coliseu de Roma">
-            <p>Viaje no tempo e descubra a história milenar de Roma e seus monumentos.</p>
-            <ul>
-                <li>Coliseu</li>
-                <li>Fontana di Trevi</li>
-                <li>Panteão</li>
-                <li>Vaticano e Capela Sistina</li>
-            </ul>
-        </div>
+    <div class="destino">
+      <h3>Nova York</h3>
+      <picture>
+          <img src="imgviagens/novayork.jpg" alt="Cidade de Nova York" />
+      </picture>
+      <p>A cidade que nunca dorme espera por você!</p>
+      <ul>
+        <li>Central Park</li>
+        <li>Times Square</li>
+        <li>Estátua da Liberdade</li>
+      </ul>
+      <a href="#" class="btn">Explorar</a>
+    </div>
 
-        <div id="planosFic">
-            <h3>Paris</h3>
-            <img src="imgviagens/paris.jpg" alt="Torre Eiffel">
-            <p>Descubra a cidade do amor e suas maravilhas arquitetônicas.</p>
-            <ul>
-                <li>Torre Eiffel</li>
-                <li>Museu do Louvre</li>
-                <li>Catedral de Notre-Dame</li>
-                <li>Bairro de Montmartre</li>
-            </ul>
-        </div>
+    <div class="destino">
+      <h3>Roma</h3>
+      <img src="imgviagens/roma.jpg" alt="Coliseu de Roma" />
+      <p>História viva em cada rua e monumento.</p>
+      <ul>
+        <li>Coliseu</li>
+        <li>Fontana di Trevi</li>
+        <li>Vaticano</li>
+      </ul>
+      <a href="#" class="btn">Explorar</a>
+    </div>
 
-        <div id="planosFic">
-            <h3>França</h3>
-            <img src="imgviagens/valedoloire.jpg" alt="Paisagens da França">
-            <p>Conheça vinícolas encantadoras, o charme das vilas e paisagens de tirar o fôlego.</p>
-            <ul>
-                <li>Vale do Loire</li>
-                <li>Provence</li>
-                <li>Côte d'Azur</li>
-                <li>Alsácia</li>
-            </ul>
-        </div>
+    <div class="destino">
+      <h3>Paris</h3>
+      <img src="imgviagens/paris.jpg" alt="Torre Eiffel" />
+      <p>A capital do amor e da elegância europeia.</p>
+      <ul>
+        <li>Torre Eiffel</li>
+        <li>Louvre</li>
+        <li>Montmartre</li>
+      </ul>
+      <a href="#" class="btn">Explorar</a>
+    </div>
 
-        <div id="planosFic">
-            <h3>Bélgica</h3>
-            <img src="imgviagens/brugues.jpg" alt="Praça na Bélgica">
-            <p>História medieval, chocolates premiados e arquitetura impressionante.</p>
-            <ul>
-                <li>Bruxelas - Grand Place</li>
-                <li>Bruges - Canais e centro histórico</li>
-                <li>Gante - Castelos e catedrais</li>
-                <li>Antuérpia - Arte e moda</li>
-            </ul>
-        </div>
+    <div class="destino">
+      <h3>França</h3>
+      <img src="imgviagens/valedoloire.jpg" alt="Paisagens da França" />
+      <p>Vinícolas, vilas e paisagens cinematográficas.</p>
+      <ul>
+        <li>Vale do Loire</li>
+        <li>Provence</li>
+        <li>Côte d’Azur</li>
+      </ul>
+      <a href="#" class="btn">Explorar</a>
+    </div>
 
-    </section>
+    <div class="destino">
+      <h3>Bélgica</h3>
+      <img src="imgviagens/brugues.jpg" alt="Praça na Bélgica" />
+      <p>Arquitetura medieval e os melhores chocolates.</p>
+      <ul>
+        <li>Bruxelas</li>
+        <li>Bruges</li>
+        <li>Gante</li>
+      </ul>
+      <a href="#" class="btn">Explorar</a>
+    </div>
+
+  </section>
 
 </body>
 </html>
-
