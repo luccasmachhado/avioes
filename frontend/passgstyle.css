@@ -21,7 +21,6 @@ body{
 main{
     display: flex;
     background-color: blue; 
-    
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -72,11 +71,12 @@ nav#menu a:hover{
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 .butdest{
     background-color: aqua;
     width: 80vw;
-    height: 50vh;
+    height: 80vh;
     transition: 0.5s;
     margin: 10px;
 }
@@ -115,7 +115,10 @@ a:hover {
     }
     .butdest{
         height: 30vh;
+        display:flex;
+        display: inline-block;        
     }
+    
     .butdest:hover{
         height: 31vh;
     }
