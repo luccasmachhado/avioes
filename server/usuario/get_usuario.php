@@ -21,8 +21,11 @@
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($usuario){
-            $_SESSION['cpf'] = $cpf;
-            $_SESSION['senha'] = $senha;
+            $_SESSION['usuario'] = [   
+                'id' => $usuario['id'],
+                'cpf' => $usuario['cpf'],
+                'senha' => $usuario['senha']
+            ];
             header('Location: ../../frontend/tela_usuario.php');
             exit;
         }else{
@@ -33,8 +36,9 @@
     } catch(PDOException $e){
 
         echo json_encode(['error' => $e->getMessage()]);
-        unset($_SESSION['cpf']);
-        unset($_SESSION['senha']);
+        unset($_SESSION['usuario']['cpf']);
+        unset($_SESSION['usuario']['senha']);
+        unset($_SESSION['usuario']['id']);
     }
 }else{
     echo json_encode(["error" => "Preencha o Formulário com \" Cpf \", \" Senha \" para fazer login"]);

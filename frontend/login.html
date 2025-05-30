@@ -13,6 +13,9 @@
             if(urlParams.get('msg') === 'falha'){
                 alert("CPF ou Senha Incorretos");
             }
+            if(urlParams.get('msg') === 'erro_addCar'){
+                alert("É necessário estar logado para Acessar a seção!");
+            } 
         }
     </script>
     <link rel="stylesheet" href="loginstyle.css">
@@ -23,10 +26,11 @@
 <body>
     <header>
         <nav id="menu">
-        <a class="opc" href="Passagens.html">Passagens</a>
+        <a class="opc" href="Passagens.php">Comprar</a>
         <a class="opc" href="#">Viagens</a>
         <a class="opc" href="#">Sobre</a>
         <a class="opc" href="cadastro.html">Cadastro</a>
+        <a class="opc" href="carrinho.php">Carrinho</a>
     </nav>
     </header>
     <div>

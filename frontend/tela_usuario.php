@@ -1,12 +1,17 @@
 <?php 
 session_start();
 print_r($_SESSION);
-if((isset($_SESSION['cpf']) == false) and (isset($_SESSION['senha']) == false)){
-    header('Location: login.html');
-    unset($_SESSION['cpf']);
-    unset($_SESSION['senha']);
+ if (
+    !isset($_SESSION['usuario']) ||
+    !isset($_SESSION['usuario']['cpf']) ||
+    !isset($_SESSION['usuario']['senha']) ||
+    !isset($_SESSION['usuario']['id'])
+    ) {
+    header('Location: http://localhost/skyline/frontend/login.html?msg=erro_addCar');
+    session_unset(); // limpa toda a sessão
+    exit;
 }
-$logado = $_SESSION['cpf'];
+$logado = $_SESSION['usuario']['cpf'];
 ?>
 
 <!DOCTYPE html>

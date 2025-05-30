@@ -1,3 +1,6 @@
+<?php
+    require_once(__DIR__ . '/../server/voo/get_voo.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,19 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="viagenstyle.css">
     <link rel="shortcut icon" href="Imagens/Logoi2.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
-
+    <script>
+            window.onload = function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.get('menssagem') === 'compra_sucesso'){
+                alert("O item foi adcionado ao Carrinho!");
+            }}
+    </script>
 </head>
 <body>
     <header>
     <nav id="menu"> 
-        <a class="opc" href="Passagens.php">Passagens</a>
+        <a class="opc" href="Passagens.php">Comprar</a>
         <a class="opc" href="#">Viagens</a>
         <a class="opc" href="#">Sobre</a>
         <a class="opc" href="login.html">Login</a>
+        <a class="opc" href="carrinho.php">Carrinho</a>
     </nav>
     <picture>
         <img src="Imagens/Logo.png" alt="Logo">
@@ -27,18 +38,14 @@
         <section id="Viagens">
                 <h2>Seu próximo destino inesquecível começa aqui</h2>
                 <section id="ny">
-                    <a href="#">
-                        <button class="des" id="desny">
-                        </button>
-                    </a>
-                    <a href="#">
-                        <button class="des" id="descr">
-                        </button>
-                    </a>
-                    <a href="#">
-                        <button class="des" id="desfc">
-                        </button>
-                    </a>
+                    <?php
+                        $i = "0";
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                            echo "<div class='destino'><h3>".$row['destino']."</h3><pictire><img src='Imagens/".$row['imagem'].$i.".jpg'></pictire><p>Aeroporto de ".$row['origem']."</p></div>";
+                            $i = $i+1;
+                            if($i <= 2){$i = $i+1;}else{$i=0;}
+                        }
+                    ?>
                 </section>
         </section>
         <section id="Passagens">
@@ -95,13 +102,13 @@
                     </picture>
                 </div>
             </section>
-            <section id="family2">
+            <section id="family">
                 <div class="family1">
                     <picture>
                         <img id="imgfamily" src="Imagens/familia.avif" alt="">
                     </picture>
                 </div>
-                    <div class="family1">
+                <div class="family1">
                     <p id="leg">Viajar com a Skyline foi uma experiência incrível! O Plano Bem-Estar Família nos ofereceu conforto e praticidade do início ao fim. Fomos muito bem atendidos, e as crianças aproveitaram cada momento do voo. A equipe foi atenciosa e nos fez sentir acolhidos. Já estamos planejando a próxima viagem com a Skyline! <br> <br>
                     — Família Martins, Curitiba/PR
                     </p>

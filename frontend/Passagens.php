@@ -9,13 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passagens</title>
     <link rel="stylesheet" href="passgstyle.css">
-    <script>
-            window.onload = function(){
-            const urlParams = new URLSearchParams(window.location.search);
-            if(urlParams.get('msg') === 'compra_sucesso'){
-                alert("Cadastrado com sucesso! Faça seu Login!");
-            }}
-    </script>
+    
 </head>
 <body>
     <header>
@@ -49,9 +43,11 @@
                             <h3> Assentos Disponíveis: ".$row['assentos_disponiveis']."</h3>
                             <h3> Aeroporto Internacional do ".$row['origem']."</h1>
                             <h3>Partida: ".$row['data_partida']."</h3>
-                            <h3>Chegada: ".$row['data_chegada']."</h3>   
-                                <input type='submit' value='Comprar' id='botao".$row['id']."'>
-                            </form>
+                            <h3>Chegada: ".$row['data_chegada']."</h3>  "; 
+                            if($row['assentos_disponiveis']>0){echo "<input type='submit' value='Adcionar ao carrinho' id='botao".$row['id']."'>";
+                            }else{echo "<p style='color: read;'>Passagens esgotadas</p>";
+                            }
+                            echo "</form>
                             </div>";
                     }
             ?>
