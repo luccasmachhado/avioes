@@ -2,7 +2,6 @@
     require_once(__DIR__ . '/../voo/get_voo.php');
     require_once(__DIR__ . '/../passagem/post_passagem.php');
     session_start();
-    print_r($_SESSION);
   if (
     !isset($_SESSION['usuario']) ||
     !isset($_SESSION['usuario']['cpf']) ||
@@ -25,11 +24,7 @@
                 $stmt->bindParam(':idOusuario', $idOusuario);
                 $stmt->execute();
 
-                $stmtC = $pdo->prepare('UPDATE voo SET assentos_disponiveis = assentos_disponiveis - 1 WHERE id = :idOvoo');
-                $stmtC->bindParam(':idOvoo', $idOvoo);
-                $stmtC->execute();
-
-                header('Location: http://localhost/skyline/frontend/index.php?menssagem=compra_sucesso');
+                header('Location: http://localhost/skyline/frontend/index.php?mensagem=add_car_sucesso');
                 exit;
             }catch(PDOException $e){
                 echo json_encode(['error' => 'Erro ao cadastrar'. $e->getMessage()]);

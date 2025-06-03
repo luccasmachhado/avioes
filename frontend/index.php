@@ -16,7 +16,10 @@
     <script>
             window.onload = function(){
             const urlParams = new URLSearchParams(window.location.search);
-            if(urlParams.get('menssagem') === 'compra_sucesso'){
+            if(urlParams.get('mensagem') === 'compra_sucesso'){
+                alert("Compra efetuada com êxito!");
+            }
+            if(urlParams.get('mensagem') === 'add_car_sucesso'){
                 alert("O item foi adcionado ao Carrinho!");
             }}
     </script>
