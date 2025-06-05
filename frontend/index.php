@@ -1,5 +1,7 @@
-<?php
+<?php    
     require_once(__DIR__ . '/../server/voo/get_voo.php');
+    require_once(__DIR__ . '/../server/usuario/logout.php');
+    session_start()
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -7,8 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="viagenstyle.css">
+    <link rel="stylesheet" href="perfil.css">
     <link rel="shortcut icon" href="Imagens/Logoi2.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -22,6 +23,19 @@
             if(urlParams.get('mensagem') === 'add_car_sucesso'){
                 alert("O item foi adcionado ao Carrinho!");
             }}
+            
+            function toggleDropdown() {
+                const dropdown = document.getElementById("perfil-dropdown");
+                dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+            }
+
+            window.addEventListener("click", function(event) {
+                const dropdown = document.getElementById("perfil-dropdown");
+                const bolinha = document.querySelector(".perfil-bolinha");
+                if (dropdown && bolinha && !bolinha.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.style.display = "none";
+                }
+            });
     </script>
 </head>
 <body>
@@ -30,8 +44,27 @@
         <a class="opc" href="Passagens.php">Comprar</a>
         <a class="opc" href="#">Viagens</a>
         <a class="opc" href="#">Sobre</a>
-        <a class="opc" href="login.html">Login</a>
         <a class="opc" href="carrinho.php">Carrinho</a>
+         <?php if (
+            !isset($_SESSION['usuario']) ||
+            !isset($_SESSION['usuario']['cpf']) ||
+            !isset($_SESSION['usuario']['senha']) ||
+            !isset($_SESSION['usuario']['id'])
+        ) { 
+            echo '<a class="opc" href="login.html">Login</a>';
+        }else{
+            $inicial = strtoupper(substr($_SESSION['usuario']['nome'], 0, 1));
+            echo '<div class="perfil-container">
+            <div class="perfil-bolinha" onclick="toggleDropdown()">'.$inicial.'</div>
+            <div id="perfil-dropdown" class="perfil-dropdown">
+                <a href="tela_usuario.php">Perfil</a>
+                <form action="../server/usuario/logout.php" method="post">
+                    <input type="hidden" name="logout" value="htmlspecialchars(logout)">
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+            </div>';
+        } ?>
     </nav>
     <picture>
         <img src="Imagens/Logo.png" alt="Logo">

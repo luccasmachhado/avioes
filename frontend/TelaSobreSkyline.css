@@ -1,0 +1,54 @@
+/* TelaSobreSkyline.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #001f3f; /* azul escuro */
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.section {
+  background-color: #001f3f;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  color: #ff7f00; /* laranja */
+  margin-bottom: 1rem;
+}
+
+.section p, .section ul {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.section ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+}
