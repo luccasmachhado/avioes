@@ -55,7 +55,7 @@ form{
     padding: 10px;
     text-align: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.596);
+    background-color: #00000098;
     border-radius: 25px;
     backdrop-filter: blur(3px);
     }

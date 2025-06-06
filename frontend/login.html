@@ -17,7 +17,7 @@
                 alert("É necessário estar logado para Acessar a seção!");
             }
             if(urlParams.get('msg') === 'logout_sucesso'){
-                alert("Logout bem em sucedido");
+                alert("Logout bem sucedido");
             } 
         }
     </script>
@@ -30,15 +30,14 @@
     <header>
         <nav id="menu">
         <a class="opc" href="Passagens.php">Comprar</a>
-        <a class="opc" href="#">Viagens</a>
-        <a class="opc" href="#">Sobre</a>
-        <a class="opc" href="cadastro.html">Cadastro</a>
+        <a class="opc" href="viagens.html">Viagens</a>
+        <a class="opc" href="Sobre.html">Sobre</a>
         <a class="opc" href="carrinho.php">Carrinho</a>
     </nav>
     </header>
     <div>
         <form action="../server/usuario/get_usuario.php" method="post" class="login">
-            <a id="img" href="index.html">
+            <a id="img" href="index.php">
                 <picture>
                     <img src="Imagens/Logo.png" alt="">
                 </picture>

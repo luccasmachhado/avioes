@@ -1,5 +1,6 @@
 <?php    
     require_once(__DIR__ . '/../server/voo/get_voo.php');
+    require_once(__DIR__ . '/../server/linha_aerea/get_linha_aerea.php');
     require_once(__DIR__ . '/../server/usuario/logout.php');
     session_start()
 ?>
@@ -9,7 +10,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Imagens/aviaoicon.ico" type="image/x-icon" >
     <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="viagenstyle.css">
     <link rel="shortcut icon" href="Imagens/Logoi2.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -41,8 +45,8 @@
 <body>
     <header>
     <nav id="menu"> 
-        <a class="opc" href="Passagens.php">Comprar</a>
-        <a class="opc" href="#">Viagens</a>
+        <a class="opc" href="Passagens.php">Passagens</a>
+        <a class="opc" href="viagens.html">Viagens</a>
         <a class="opc" href="#">Sobre</a>
         <a class="opc" href="carrinho.php">Carrinho</a>
          <?php if (
@@ -54,11 +58,11 @@
             echo '<a class="opc" href="login.html">Login</a>';
         }else{
             $inicial = strtoupper(substr($_SESSION['usuario']['nome'], 0, 1));
-            echo '<div class="perfil-container">
+            echo '<div class="perfil-quadrante">
             <div class="perfil-bolinha" onclick="toggleDropdown()">'.$inicial.'</div>
             <div id="perfil-dropdown" class="perfil-dropdown">
                 <a href="tela_usuario.php">Perfil</a>
-                <form action="../server/usuario/logout.php" method="post">
+                <form action="tela_usuario.php" method="post">
                     <input type="hidden" name="logout" value="htmlspecialchars(logout)">
                     <button type="submit">Logout</button>
                 </form>
@@ -67,19 +71,29 @@
         } ?>
     </nav>
     <picture>
-        <img src="Imagens/Logo.png" alt="Logo">
+        <img src="Imagens/skylinelogo23.png" alt="Logo">
     </picture>
     </header>
     <main>
-        <section id="Viagens">
+        <section class="container" id="destinos">
                 <h2>Seu próximo destino inesquecível começa aqui</h2>
-                <section id="ny">
+                <section class="container" id="destinos">
                     <?php
-                        $i = "0";
+                        $i = 0;
                         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            echo "<div class='destino'><h3>".$row['destino']."</h3><pictire><img src='Imagens/".$row['imagem'].$i.".jpg'></pictire><p>Aeroporto de ".$row['origem']."</p></div>";
+                            if($i > 2 and $i != 0){$i=0;} 
+                            echo "<div class='destino'><h3>".$row['destino']."</h3><pictire><img src='Imagens/".$row['imagem'].$i.".jpg'' alt='Cidade de ".$row['destino']."'></pictire>
+                            <ul class='infodestino'>
+                                <p>Data e horário de partida: ".$row['data_partida']."</p>
+                                <p>Horário estimado de chegada".$row['data_chegada']."</p>
+                                <p>Linha Aérea: "; foreach ($linhas as $linha) { 
+                                    if($linha['id'] == $row['linha_aerea_id']){
+                                        echo $linha['nome'];
+                                    }
+                                 } echo "</p>
+                            </ul>
+                            <a href='#' class='btn'>Explorar</a></div>";
                             $i = $i+1;
-                            if($i <= 2){$i = $i+1;}else{$i=0;}
                         }
                     ?>
                 </section>

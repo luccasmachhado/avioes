@@ -1,62 +1,25 @@
 @charset "UTF-8";
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Inria Sans', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-nav {
-    top: 50%;
-    text-align: center;
-    padding: 20px;
-    height: 10vh;
-    background-color: rgba(0, 0, 0, 0.445);
-    box-shadow: inset 5px 5px 50px rgba(0, 0, 0, 0.445);
-}
-nav#menu> a {
-    padding: 15px;
-    margin: 15px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-h1 {
-    margin: 30px auto;
-    font-size: 3em;
-    color: #003461;
-    font-family: 'Kanit', sans-serif;
-    text-align: center;
-}
-a {
-    font-size: 1.2em;
-    font-family: "Inria Sans", sans-serif;
-    text-decoration: none;
-    color: white;
-    position: relative;
-}
-
-a:hover {
-    font-weight: bold;
-    padding: 12px;
-}
 .container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 50px;
-    padding: 50px;
+    padding: 20px;
     flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .destino {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -71,12 +34,12 @@ a:hover {
 }
 
 .destino h3 {
-    font-size: 2em;
-    color: #004a99;
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 74, 153, 0.3);
+    font-size: 2.3em;
+    padding: 10px;
+    color: white;
+    background-color: #001542;
+    font-family: "Heebo", sans-serif;
+    font-weight: normal;
 }
 
 .destino img {
@@ -90,9 +53,14 @@ a:hover {
 }
 
 .destino p {
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #555;
     margin-bottom: 12px;
+    font-family: "Noto Sans", sans-serif;
+    text-align: justify;
+    text-indent: 20px;
+    line-height: 30px;
+
 }
 
 .destino ul {
@@ -100,22 +68,24 @@ a:hover {
     padding: 0;
     margin-bottom: 20px;
     font-size: 1em;
-    color: #444;
+    color: #353535;
+    font-family: "Noto Sans", sans-serif;
+
 }
 
 .destino ul li::before {
-    content: "› ";
+    content: "-> ";
     color: #003461;
     font-weight: bold;
 }
 
 a.btn {
     display: inline-block;
-    background-color: #003461;
+    background-color: #01226b;
     color: #fff;
     padding: 12px 25px;
     border-radius: 6px;
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1em;
@@ -123,8 +93,8 @@ a.btn {
 }
 
 a.btn:hover {
-    background-color: #012340;
-    transform: scale(1.05);
+    background-color: #001f63;
+    transform: scale(1.04);
 }
 
 footer {
@@ -155,7 +125,7 @@ footer {
     }
 
     .destino {
-        width: 100%;
+        width: 90%;
         padding: 20px;
     }
 

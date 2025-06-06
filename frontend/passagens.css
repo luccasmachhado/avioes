@@ -1,0 +1,113 @@
+/* Reset e base */
+body, h1, h2, h3, h4, p, ul, li, a, input, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #001f3f;
+  padding: 1rem 2rem;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#menu .opc {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#menu .opc:hover {
+  color: #ff7f00;
+}
+
+/* Formulário de busca */
+.search {
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.search input {
+  padding: 0.5rem;
+  width: 300px;
+  border: 2px solid #001f3f;
+  border-radius: 8px;
+}
+
+.search button {
+  background-color: #ff7f00;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.search button:hover {
+  background-color: #e66900;
+}
+
+.destopc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.butdest {
+  background-color: white;
+  border-left: 6px solid #001f3f;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.butdest:hover {
+  transform: translateY(-5px);
+}
+
+.butdest h2 {
+  color: #001f3f;
+}
+
+.butdest h3 {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+input[type='submit'] {
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+input[type='submit']:hover {
+  background-color: #e66900;
+}
+
+/* Mensagem de esgotado */
+.passagem-esgotada {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
+}

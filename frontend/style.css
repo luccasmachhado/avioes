@@ -21,8 +21,8 @@ header {
     image-rendering: auto;
 }
 header > picture > img {
-    width: 400px;
-    margin: 70px;
+    width: 500px;
+    margin: auto;
 }
 header> h2 {
     text-align: center;
@@ -31,14 +31,14 @@ nav {
     display: flex;
     justify-content: right;
     text-align: right;
-    padding: 3px;
-    height: 12vh;
+    padding: 10px;
+    height: 17vh;
     background-image: linear-gradient(to bottom,#000000d8 5%,transparent);
 
 }
 
 nav#menu > a {
-    padding: 5px;
+    padding: 15px;
     margin: 15px;
     border: 1px solid rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.212);
@@ -66,7 +66,7 @@ section#Viagens {
 }
 
 section#Viagens > h2 {
-    background-color: #012340;
+    background-color: #001542;
     color: white;
     padding: 15px;
     font-size: 2em;
@@ -123,7 +123,7 @@ button#desfc{
 /* ======================== SEÇÃO PASSAGENS ======================== */
 section#Passagens {
     height: 30vh;
-    background-color: #012a4e;
+    background-image: linear-gradient(to right,#103778, #001542);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +132,6 @@ form>.passg{
    display: flex;
    width: 80vw;
    padding: 25px;
-    box-shadow: -20px 25px 100px rgb(0, 0, 0);
    justify-content: space-evenly;
    background-color: white;
    border-radius: 15px;
@@ -173,17 +172,21 @@ button{
     border-radius: 15px;
     border: none;
     transition: 0.2s;
-    background-color: #003461;
+    transition-timing-function: ease-in;
+    background-color: #01226b;
 }
 button:hover{
     width: 55px;
     height: 55px;
-
+}
+button:hover>img{
+    width: 40px;
 }
 div#button{
     padding-left: 10px;
 }
 button>img{
+    transition: 0.2s;
     width: 35px;
 }
 
@@ -197,7 +200,7 @@ section#Familia {
 }
 
 section#Familia > h2 {
-    background-color: #012340;
+    background-color: #001542;
     color: white;
     padding: 15px;
     font-size: 2em;
@@ -220,14 +223,15 @@ section#family2{
     align-items: center;
 }
 .family1{
-    width: 70vw;
-    height: 50vh;
+    width: 50vw;
+    height: 70vh;
     display: flex;
     align-items: center;
     margin: 20px;
 }
+
 img#imgfamily{
-    width: 100%;
+    width: 112%;
     height: 95%;
     border-radius: 25px;
     box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.952);
@@ -241,7 +245,7 @@ section#Planos {
 }
 
 section#Planos > h2 {
-    background-color: #012340;
+    background-color: #022164;
     color: white;
     padding: 15px;
     font-size: 2em;
@@ -261,21 +265,21 @@ section#planos2 > p {
 
 /* ======================== PLANOS OPCIONAIS ======================== */
 section#planosOpc {
-    background-color: #003461;
+    background-color: #0E2780;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 102vh;
 }
 .planosfic{
     border: 5px solid white;
     border-radius: 50px;
-    background-color: #164773;
+    background-image: linear-gradient(to left,#033E8C,#0E2780);
     margin: 20px;
     width: 50vw;
     height: 95vh;
     transition: all 0.3s;
     transition-timing-function: ease-in;
-    transition-delay: 0.1s;
+    transition-delay: 0.2s;
 }
 .planosfic>picture>img{
     width: 300px;
@@ -291,9 +295,7 @@ section#planosOpc {
 .planosfic:hover{
     width: 51vw;
     height: 96vh;
-    border: 10px solid white;
-    background-color: #1b588d;
-    box-shadow: inset 5px 10px 90px rgba(245, 245, 245, 0.103);
+    background-image: linear-gradient(to right,#033E8C,#0E2780);
 }
 .planosfic:hover img{
     width: 310px;
@@ -327,24 +329,37 @@ li{
 
 /* ======================== SEÇÃO PROMOÇÃO ======================== */
 section#Promo {
-    background: url("Imagens/PapeldeParedeNovayork.webp") no-repeat left center;
-    background-size: cover;
+    background-image: linear-gradient(to right,#103778,#062252, #001542);
     color: white;
-    height: 90%;
-}
-
-section#Promo > h2 {
-    font-size: 2.5em;
-    padding: 20px;
-    margin: 10px;
-    transform: translate(0%, 20%);
-}
-
-div#textpromo0 {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
 
+section#Promo > div#textpromo2 > h2 {
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+    padding: 20px;
+}
+div#textpromo2{
+    width: 800px;
+    border-radius: 15px;
+    margin-left: 5%;
+}
+div#textpromo{
+    width: 70vw;
+    margin: auto;
+}
+div#textpromo ul li {
+    color: #f7f7f7;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px;
+}
+div#textpromo>ul>li{
+    font-size: 1.3em;
 }
 /* ======================== TEXTOS ======================== */
 .textp {
@@ -368,8 +383,8 @@ p#leg {
     line-height: 35px;
     border-radius: 12px;
     width: 600px;
-    
     padding: 20px;
+    margin-right: 20px;
 }
 
 /* ======================== TÍTULOS ======================== */
@@ -432,6 +447,9 @@ picture {
     header{
         height: 120vh;
     }
+    header>picture>img{
+        width: 485px;
+    }
     nav#menu{
         background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.788),transparent);
         height: 30vh;
@@ -463,6 +481,29 @@ picture {
         height: 70%;
         box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.952);
 
+    }
+    section#Promo{
+        flex-direction: column;
+        height: 120vh;
+    }
+    div#textpromo2{
+        width: 400px;
+        margin: auto;
+    }  
+    section#Promo > div#textpromo2 > h2 {
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        padding: 20px;
+    }
+    div#textpromo{
+        width: 95vw;
+        margin: auto;
+    }
+    div#textpromo>ul>li{
+        font-size: 1.2em;
+        color: #f7f7f7;
+        margin: 20px;
     }
     section#family p#leg{
         font-size: 1.5em;
@@ -500,7 +541,7 @@ picture {
         flex-direction: column;
     }
     select,input#datas{
-        width: 310px;
+        width: 295px;
         transition: 0.1s;
     }
     select:hover{
