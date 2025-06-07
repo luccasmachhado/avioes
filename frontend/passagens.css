@@ -22,6 +22,11 @@ header {
   align-items: center;
 }
 
+#opcao-continuar{
+  display: flex;
+  align-items: center;
+}
+
 #menu .opc {
   color: white;
   text-decoration: none;
@@ -41,14 +46,14 @@ header {
   gap: 0.5rem;
 }
 
-.search input {
+.search .inputSear {
   padding: 0.5rem;
   width: 300px;
   border: 2px solid #001f3f;
   border-radius: 8px;
 }
 
-.search button {
+.search .buttonSear {
   background-color: #ff7f00;
   border: none;
   padding: 0.5rem 1rem;
@@ -89,7 +94,7 @@ header {
   color: #333;
 }
 
-input[type='submit'] {
+.buttonSub {
   background-color: #ff7f00;
   color: white;
   border: none;
@@ -101,7 +106,7 @@ input[type='submit'] {
   transition: background-color 0.3s;
 }
 
-input[type='submit']:hover {
+.buttonSub:hover {
   background-color: #e66900;
 }
 

@@ -1,5 +1,5 @@
 <?php    
-    require_once(__DIR__ . '/../server/voo/get_voo.php');
+    require_once(__DIR__ . '/../server/voo/get_voo_mais_usados.php');
     require_once(__DIR__ . '/../server/linha_aerea/get_linha_aerea.php');
     require_once(__DIR__ . '/../server/usuario/logout.php');
     session_start()
@@ -47,7 +47,7 @@
     <nav id="menu"> 
         <a class="opc" href="Passagens.php">Passagens</a>
         <a class="opc" href="viagens.html">Viagens</a>
-        <a class="opc" href="#">Sobre</a>
+        <a class="opc" href="TelaSobreSkyline.php">Sobre</a>
         <a class="opc" href="carrinho.php">Carrinho</a>
          <?php if (
             !isset($_SESSION['usuario']) ||
@@ -76,16 +76,16 @@
     </header>
     <main>
         <section class="container" id="destinos">
-                <h2>Seu próximo destino inesquecível começa aqui</h2>
+            <h2>Seu próximo destino inesquecível começa aqui. Confira nossos voos mais comsumidos!</h2>
                 <section class="container" id="destinos">
                     <?php
                         $i = 0;
-                        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                        foreach($menores3Voos as $row){
                             if($i > 2 and $i != 0){$i=0;} 
                             echo "<div class='destino'><h3>".$row['destino']."</h3><pictire><img src='Imagens/".$row['imagem'].$i.".jpg'' alt='Cidade de ".$row['destino']."'></pictire>
                             <ul class='infodestino'>
                                 <p>Data e horário de partida: ".$row['data_partida']."</p>
-                                <p>Horário estimado de chegada".$row['data_chegada']."</p>
+                                <p>Horário estimado de chegada: ".$row['data_chegada']."</p>
                                 <p>Linha Aérea: "; foreach ($linhas as $linha) { 
                                     if($linha['id'] == $row['linha_aerea_id']){
                                         echo $linha['nome'];
