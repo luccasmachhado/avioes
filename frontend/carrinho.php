@@ -32,10 +32,12 @@ if (empty($voosUsuario)) {
       $valor_total = null;
         foreach ($voosUsuario as $voo) {
                 echo "<div class='butdest'>
-                <h1>".$voo['destino']."</h1>
+                <h1>".$voo['cidade']['nome']."</h1>
                 <h2>".$voo['preco']."</h2>
                 <h3> Assentos Disponíveis: ".$voo['assentos_disponiveis']."</h3>
-                <h3> Aeroporto Internacional do ".$voo['origem']."</h3>
+                <h3>Embarque: ".$voo['origem']."</h3>
+                <h3>Desembarque: ".$voo['destino']."</h3>
+                <h3>".$voo['cidade']['pais']."</h3>
                 <h3>Linha Aérea: ";
                             foreach ($linhas as $linha) { 
                                     if($linha['id'] == $voo['linha_aerea_id']){
@@ -56,7 +58,7 @@ if (empty($voosUsuario)) {
    </div>
 <div>
 <form action='' method='post' id="menu">
-<?php echo '<label>VALOR TOTAL(Base): '.$valor_total.'</label>' ?><br>;
+<?php echo '<label>VALOR BASE TOTAL: '.$valor_total.'</label>' ?><br>;
 <input type='radio' name='comprar' value='1'/>
 <label>Selecionar tudo</label>
 <input class='buttonSub' type='submit' value='Continuar'/>

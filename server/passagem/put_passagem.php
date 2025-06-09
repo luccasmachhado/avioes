@@ -17,13 +17,13 @@
     $idOusuario = $_SESSION['usuario']['id'];
 
         try{
+            $stmtb = $pdo->prepare('SELECT * FROM passagem WHERE idOusuario = :idOusuario AND compra = 0');
+            $stmtb->bindParam(':idOusuario', $idOusuario);
+            $stmtb->execute();
+
             $stmta = $pdo->prepare('UPDATE passagem SET compra = 1 WHERE idOusuario = :idOusuario AND compra = 0');
             $stmta->bindParam(':idOusuario', $idOusuario, PDO::PARAM_INT);
             $stmta->execute();
-            
-            $stmtb = $pdo->prepare('SELECT * FROM passagem WHERE idOusuario = :idOusuario AND compra = 1');
-            $stmtb->bindParam(':idOusuario', $idOusuario);
-            $stmtb->execute();
             
             while($row = $stmtb->fetch(PDO::FETCH_ASSOC)) {
             $idOvoo = $row['idOvoo'];

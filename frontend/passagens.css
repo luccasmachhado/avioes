@@ -116,3 +116,16 @@ header {
   font-weight: bold;
   margin-top: 1rem;
 }
+.passagem-carrinho{
+  color: green;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.quantidade{
+  background-color: #001f3f;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+}

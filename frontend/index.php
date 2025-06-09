@@ -76,21 +76,18 @@
     </header>
     <main>
         <section class="container" id="destinos">
-            <h2>Seu próximo destino inesquecível começa aqui. Confira nossos voos mais comsumidos!</h2>
+            <h2>Seu próximo destino inesquecível começa aqui. Confira os lugares visitados abaixo!</h2>
                 <section class="container" id="destinos">
                     <?php
                         $i = 0;
-                        foreach($menores3Voos as $row){
+                        $idsJaExibidos = isset($voosPesquisa) ? array_column($voosPesquisa, 'id') : [];
+                        foreach($todosVoos as $row){
                             if($i > 2 and $i != 0){$i=0;} 
-                            echo "<div class='destino'><h3>".$row['destino']."</h3><pictire><img src='Imagens/".$row['imagem'].$i.".jpg'' alt='Cidade de ".$row['destino']."'></pictire>
+                            echo "<div class='destino'><h3>".$row['destino']."</h3><picture><img src='Imagens/".$row['imagem'].$i.".jpg' alt='Cidade de ".$row['destino']."'></picture>
                             <ul class='infodestino'>
-                                <p>Data e horário de partida: ".$row['data_partida']."</p>
-                                <p>Horário estimado de chegada: ".$row['data_chegada']."</p>
-                                <p>Linha Aérea: "; foreach ($linhas as $linha) { 
-                                    if($linha['id'] == $row['linha_aerea_id']){
-                                        echo $linha['nome'];
-                                    }
-                                 } echo "</p>
+                                <p>".$row['cidade']['pais']."</p>
+                                <p>".$row['cidade']['nome']."</li></p>
+                                <p>".$row['cidade']['descricao']."</p>
                             </ul>
                             <a href='#' class='btn'>Explorar</a></div>";
                             $i = $i+1;
@@ -122,11 +119,11 @@
                         <option value="Pr">Paris</option>
                     </select>
                     </div>
-                    <div id="idavolta">
-                        <input id="datas" placeholder="Ida e Volta">
+                    <div id="destino">
+                        <input id="datas" placeholder="Data de Partida">
                         <script>
                         flatpickr("#datas", {
-                        mode: "range",
+                        mode: "single",
                         dateFormat: "d/m/Y",
                         locale: "pt"
                         });

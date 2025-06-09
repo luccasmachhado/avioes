@@ -2,6 +2,8 @@
     require_once(__DIR__ . '/../server/voo/get_voos_pesquisados.php');
     require_once(__DIR__ . '/../server/voo/get_voo.php');
     require_once(__DIR__ . '/../server/passagem/post_passagem.php');
+    require_once(__DIR__ . '/../server/passagem/verifica_passagem.php');
+
 
     require_once (__DIR__. '/../server/config/database.php');
     $pdo = getConnection();
@@ -33,7 +35,7 @@
         </nav>
     </header>
     <main>
-        <form action="#" method="post">
+        <form type='submit' method='post'>
                 <div class="search">
                 <label for="pesq"></label>
                 <input class="inputSear" type="text"  placeholder="Digite seu Destino" id="pesq" name="pesq"/>
@@ -44,18 +46,22 @@
                 </button>
                 </div>
         </form>
-        <form type='submit 'method="post">
+        <div class="destopc">
         <?php
-            if (isset($stmta) && $stmta){
-                echo "<h3>Resultados: <h3><br>";
-            while($row = $stmta->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class='butdest'>
-                <div>
-                <label><b>".$row['destino']."</b></label>
+        if (isset($_POST['pesq'])){
+            echo "<h3>Resultados: ";
+            if (empty($voosPesquisa)) {
+                echo '<p>Nenhum resultado encontrado.</p>';
+            } else {
+            foreach($voosPesquisa as $row) {
+                echo "<div class='butdest'><form type='submit' method='post'>
+                <label><b>".$row['cidade']['nome']."</b></label>
                 <h1>".$row['preco']."</h1>
                 <h3>(Valor base)</h3>
                 <h3> Assentos Disponíveis: ".$row['assentos_disponiveis']."</h3>
-                <h3> Aeroporto Internacional do ".$row['origem']."</h3>
+                <h3>Embarque: ".$row['origem']."</h3>
+                <h3>Desembarque: ".$row['destino']."</h3>
+                <h3>".$row['cidade']['pais']."</h3>
                 <h3> Linha Aerea: ";
                 foreach ($linhas as $linha) { 
                                     if($linha['id'] == $row['linha_aerea_id']){
@@ -64,24 +70,60 @@
                                  }                                 
                 echo "</h3><h3>Partida: ".$row['data_partida']."</h3>
                 <h3>Chegada: ".$row['data_chegada']."</h3>  "; 
-                if($row['assentos_disponiveis']>0){echo "<button class='buttonSub' type='submit' name='id' value='".$row['id']."'>Adcionar ao Carrinho</button>";
-                }else{echo "<p class='passagem-esgotada'>Passagens esgotadas</p>";
-                }
-                echo "</div>
-                </div>";
+                if($row['assentos_disponiveis']>0){ 
+                                $jaTemNoCarrinho = verificar_passagem_car($_SESSION['usuario']['id'], $row['id']);
+                                $quantidade_passagens_compradas = 0;
+
+                                $passagensJaNoCarrinho = [];
+                                while($pass = $jaTemNoCarrinho->fetch(PDO::FETCH_ASSOC)){
+                                    $quantidade_passagens_compradas++;
+                                    if($pass){
+                                        $passagensJaNoCarrinho [] = $pass;
+                                    }
+                                }
+
+                                foreach($passagensJaNoCarrinho as $passag){
+                                    if($quantidade_passagens_compradas == $row['assentos_disponiveis']){
+                                        echo "<p class='passagem-carrinho'>O valor máximo de passagens (".$quantidade_passagens_compradas. ") já foi adicionada ao carrinho</p>";
+                                        break;
+                                    }elseif($quantidade_passagens_compradas<$row['assentos_disponiveis']){
+                                        echo "<input type='number' class='quantidade' min='0' value='0' max='".$row['assentos_disponiveis']-$quantidade_passagens_compradas."' name='quant'/><button class='buttonSub' type='submit' name='id' value='".$row['id']."'>Adcionar ao Carrinho</button>";
+                                        if($quantidade_passagens_compradas>1){ 
+                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas." passagens foram adicionadas ao carrinho</p>";
+                                            break;
+                                        }else{
+                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas. " passagem foi adicionada ao carrinho</p>";
+                                            break;
+                                        }
+                                    }   
+                                }if($passagensJaNoCarrinho == null){
+                                    echo "<input type='number' class='quantidade' min='0' value='0' max='".$row['assentos_disponiveis']."' name='quant'/><button class='buttonSub' type='submit' name='id' value='".$row['id']."'>Adcionar ao Carrinho</button>";
+                                }
+                            }else{
+                                echo "<p class=passagem-esgotada>Passagens esgotadas</p>";
+                            }
+                echo "
+                </form></div>";
                 }
             }
+        }
         ?>
+        </div>
         <div class="destopc"> 
             <?php
-                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<div class='butdest'>
-                            <div>
-                            <label><b>".$row['destino']."</b></label>
+                $idsJaExibidos = isset($voosPesquisa) ? array_column($voosPesquisa, 'id') : [];
+                    foreach($todosVoos as $row) {
+                    if (in_array($row['id'], $idsJaExibidos)) {
+                        continue;
+                    }
+                        echo "<div class='butdest'><form type='submit'  method='post'>
+                            <label><b>".$row['cidade']['nome']."</b></label>
                             <h1>".$row['preco']."</h1>
                             <h3>(Valor base)</h3>
                             <h3> Assentos Disponíveis: ".$row['assentos_disponiveis']."</h3>
-                            <h3> Aeroporto Internacional do ".$row['origem']."</h1>
+                            <h3>Embarque: ".$row['origem']."</h3>
+                            <h3>Desembarque: ".$row['destino']."</h3>
+                            <h3>".$row['cidade']['pais']."</h3>
                             <h3>Linha Aérea: ";
                             foreach ($linhas as $linha) { 
                                     if($linha['id'] == $row['linha_aerea_id']){
@@ -90,15 +132,59 @@
                             } 
                             echo "</h3><h3>Partida: ".$row['data_partida']."</h3>
                             <h3>Chegada: ".$row['data_chegada']."</h3>  "; 
-                            if($row['assentos_disponiveis']>0){echo "<button class='buttonSub' type='submit' name='id' value='".$row['id']."'>Adcionar ao Carrinho</button>";
-                            }else{echo "<p  class='passagem-esgotada'>Passagens esgotadas</p>";
+                            if($row['assentos_disponiveis']>0){ 
+                                $jaTemNoCarrinho = verificar_passagem_car($_SESSION['usuario']['id'], $row['id']);
+                                $quantidade_passagens_compradas = 0;
+
+                                $passagensJaNoCarrinho = [];
+                                while($pass = $jaTemNoCarrinho->fetch(PDO::FETCH_ASSOC)){
+                                    $quantidade_passagens_compradas++;
+                                    if($pass){
+                                        $passagensJaNoCarrinho [] = $pass;
+                                    }
+                                }
+
+                                foreach($passagensJaNoCarrinho as $passag){
+                                    if($quantidade_passagens_compradas == $row['assentos_disponiveis']){
+                                        echo " <p class='passagem-carrinho'>O valor máximo de passagens (".$quantidade_passagens_compradas. ") já foi adicionada ao carrinho</p>";
+                                        break;
+                                    }elseif($quantidade_passagens_compradas<$row['assentos_disponiveis']){
+                                        echo "<input type='number' class='quantidade' min='0' value='0' max='".$row['assentos_disponiveis']-$quantidade_passagens_compradas."' name='quant'/><button class='buttonSub' type='submit' name='id' value='".$row['id']."'>Adcionar ao Carrinho</button>";
+                                        if($quantidade_passagens_compradas>1){ 
+                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas." passagens foram adicionadas ao carrinho</p>";
+                                            break;
+                                        }else{
+                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas. " passagem foi adicionada ao carrinho</p>";
+                                            break;
+                                        }
+                                    }   
+                                }if($passagensJaNoCarrinho == null){
+                                    echo "<input type='number' class='quantidade' min='0' value='0' max='".$row['assentos_disponiveis']."' name='quant'/><button class='buttonSub' type='submit' name='id' value='".$row['id']."'>Adcionar ao Carrinho</button>";
+                                }
+                            }else{
+                                echo "<p class=passagem-esgotada>Passagens esgotadas</p>";
                             }
-                            echo "</div/>
-                            </div>";
+                        echo "</form></div>";
                     }
             ?>
-        </form>
         </div>
     </main>
 </body>
+<script>
+    const inputs = document.querySelectorAll('input.quantidade');
+
+    inputs.forEach(input => {
+    input.addEventListener('input', (e) => {
+        const valor = parseInt(e.target.value) || 0;
+
+        if (valor > 0) {
+            inputs.forEach(outroInput => {
+                if (outroInput !== e.target) {
+                    outroInput.value = 0;
+                }
+            });
+        }
+    });
+    });
+</script>
 </html>

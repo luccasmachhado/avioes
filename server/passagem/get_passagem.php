@@ -28,9 +28,16 @@
                 $stmtb->bindParam(':idOvoo', $idOvoo, PDO::PARAM_INT);
                 $stmtb->execute();
                 $voo = $stmtb->fetch(PDO::FETCH_ASSOC);
-
+                
+                $id_cidade = $voo['id_cidade'];
+                $stmtc = $pdo->prepare('SELECT * FROM cidade WHERE id = :id_cidade ');
+                $stmtc->bindParam(':id_cidade', $id_cidade);
+                $stmtc->execute();
+                $cidade = $stmtc->fetch(PDO::FETCH_ASSOC);
+                
                 if ($voo) {
                     $voo['idPassagem'] = $idPassagem;
+                    $voo['cidade'] = $cidade;
                     $voosCarUsuario[] = $voo; // Adiciona o voo ao array acumulador
                 }
             }
