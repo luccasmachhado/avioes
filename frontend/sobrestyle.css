@@ -1,0 +1,344 @@
+/* ======================== IMPORTAÇÕES DE FONTES ======================== */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
+/* ======================== RESET GERAL ======================== */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* ======================== SEÇÃO BODY ======================== */
+body {
+  font-family: Arial, sans-serif;
+  height: 150vh;
+  background: url("Imagens/imgsobre.jpg") no-repeat;
+  background-size: cover;
+}
+
+/* ======================== SEÇÃO NAVEGAÇÃO ======================== */
+nav {
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  padding: 10px;
+  height: 13.9vh;
+  background-image: linear-gradient(to bottom, #0000008f 5%, transparent);
+}
+
+nav#menu > a {
+  padding: 15px;
+  margin: 15px;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.212);
+  border-radius: 15px;
+  box-sizing: border-box;
+  min-width: 150px;
+  min-height: 50px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+nav#menu a:hover {
+  font-size: 1.3em;
+  background-color: rgba(245, 245, 245, 0.247);
+  font-weight: normal;
+}
+
+/* ======================== SEÇÃO LINKS ======================== */
+a {
+  font-size: 1.2em;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  font-weight: bold;
+  padding: 12px;
+}
+
+/* ======================== SEÇÃO CONTAINER ======================== */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* ======================== SEÇÃO CABEÇALHO ======================== */
+.header {
+  background-color: #103678e5;
+  box-shadow: inset 0 4px 8px #001f3f9c;
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.header h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+/* ======================== SEÇÃO CONTEÚDO PRINCIPAL ======================== */
+.main {
+  padding: 2rem;
+  gap: 2rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 115vh;
+  width: 85vw;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: #1036786e;
+  border-radius: 15px;
+  backdrop-filter: blur(3px);
+}
+
+/* ======================== SEÇÃO SOBRE ======================== */
+.section {
+  backdrop-filter: blur(2px);
+  color: white;
+  padding: 1.5rem;
+  width: 81.5vw;
+  box-shadow: inset 0 4px 8px #001f3f9c;
+}
+
+.section h2 {
+  color: #ff7f00;
+  font-family: "Heebo", sans-serif;
+  font-weight: bold;
+  font-size: 1.8em;
+  margin-bottom: 1rem;
+}
+
+.section p,
+.section ul {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1.2em;
+  text-align: justify;
+}
+
+.section ul {
+  list-style: circle inside;
+  padding-left: 1rem;
+}
+
+/* ======================== SEÇÃO PLANOS ======================== */
+.avaliação {
+  background-image: linear-gradient(to right, #103778, #001542);
+  height: 90vh;
+}
+
+.avaliação h2 {
+  color: white;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 2em;
+  padding: 20px;
+}
+
+/* ======================== SEÇÃO CONTATO ======================== */
+.contact {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.aval {
+  width: 50vw;
+  height: 65vh;
+  background-image: linear-gradient(to left, #033E8C, #0E2780);
+  border: 3px solid white;
+  border-radius: 15px;
+}
+
+.infoph {
+  width: 40vw;
+  height: 66vh;
+  padding: 20px;
+}
+
+/* ======================== SEÇÃO TELEFONE / EMAIL ======================== */
+.phone, .email {
+  height: 32.6vh;
+  list-style-type: desc inside;
+  padding-left: 1.5rem;
+  background-image: linear-gradient(to right, #033E8C, #0E2780);
+  color: white;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.2em;
+}
+
+.phone > ul,
+.email > ul {
+  padding: 20px;
+}
+
+.phone {
+  border: 3px solid white;
+  border-bottom: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.email {
+  border: 3px solid white;
+  border-top: none;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+/* ======================== SEÇÃO FORMULÁRIO ======================== */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: translate(7%,);
+  width: 683px;
+  height: 422px;
+  text-align: left;
+}
+
+input {
+  margin: 10px;
+  margin-left: 10px;
+  width: 620px;
+  height: 60px;
+  box-sizing: border-box;
+  background-color: #ffffffcb;
+  color: black;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  font-size: 17px;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.env {
+  width: 200px;
+  margin-left: -410px;
+  background-color: #031a6d;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  transition: all 0.5s;
+  border: 2px solid white;
+}
+
+.env:hover {
+  font-weight: bold;
+  background-color: #011d83;
+  font-size: 19px;
+}
+
+/* ======================== SEÇÃO TÍTULOS H3 ======================== */
+h3 {
+  font-family: "Heebo", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ======================== SEÇÃO RESPONSIVO ======================== */
+@media (max-width: 768px) {
+  body {
+    height: 200vh;
+    background: url("Imagens/imgsobre.jpg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  nav#menu {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.788), transparent);
+    height: 27vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  nav#menu a {
+    padding: 10px;
+    margin: auto;
+    width: 150px;
+    height: 30px;
+  }
+
+  .avaliação {
+    height: 180vh;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    height: 160vh;
+    gap: 50px;
+  }
+
+  .infoph {
+    width: 80vw;
+  }
+
+  .phone, .email {
+    height: 35vh;
+  }
+
+  .aval {
+    width: 78vw;
+    height: 70vh;
+  }
+
+  form {
+    width: 393px;
+    height: 400px;
+  }
+
+  input {
+    width: 340px;
+    margin: 10px;
+  }
+
+  .env {
+    width: 340px;
+    margin-left: 10px;
+  }
+
+  .main {
+    height: 145vh;
+    width: 75vw;
+  }
+
+  .header {
+    width: 70vw;
+    margin-left: -19px;
+  }
+
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .section {
+    width: 70vw;
+    height: 60vh;
+    margin-left: -12px;
+  }
+
+  .section h2 {
+    font-size: 1.7em;
+  }
+}

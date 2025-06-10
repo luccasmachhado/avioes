@@ -1,6 +1,5 @@
 <?php 
 session_start();
-print_r($_SESSION);
 require_once(__DIR__ . '/../server/usuario/logout.php');
  if (
     !isset($_SESSION['usuario']) ||
@@ -29,7 +28,6 @@ $logado = $_SESSION['usuario']['cpf'];
     </header>
     <main className="main">
         <div className="user-info">
-        <h2>Informações do Usuário</h2>
         <?php echo "<div><strong>Bem vindo senhor(a) ".$_SESSION['usuario']['nome']."</strong></div>";?>
         <form action="" method="post">
         <input type='hidden' name='logout' value='htmlspecialchars(logout)'>

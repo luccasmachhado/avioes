@@ -20,12 +20,19 @@
             $idOvoo = (int) $_POST['id'];
             $quant = (int) $_POST['quant'];
             $idOusuario = $_SESSION['usuario']['id'];
+
             try{
                 for($i = 0; $i < $quant; $i++){
-                    $stmt = $pdo->prepare('INSERT INTO passagem (idOvoo, idOusuario, compra) VALUES (:idOvoo, :idOusuario, 0)');
+                    $stmt = $pdo->prepare('SELECT preco FROM voo WHERE id = :idOvoo');
                     $stmt->bindParam(':idOvoo', $idOvoo);
-                    $stmt->bindParam(':idOusuario', $idOusuario);
                     $stmt->execute();
+                    $valorVoo = $stmt->fetch(PDO::FETCH_ASSOC)['preco'];
+                    
+                    $stmtb = $pdo->prepare('INSERT INTO passagem (idOvoo, idOusuario, compra, valor) VALUES (:idOvoo, :idOusuario, 0, :valorVoo)');
+                    $stmtb->bindParam(':idOvoo', $idOvoo);
+                    $stmtb->bindParam(':idOusuario', $idOusuario);
+                    $stmtb->bindParam(':valorVoo', $valorVoo);
+                    $stmtb->execute();
                 }
                 header('Location: http://localhost/skyline/frontend/index.php?mensagem=add_car_sucesso');
                 exit;

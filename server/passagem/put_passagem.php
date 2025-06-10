@@ -1,5 +1,8 @@
 <?php
     require_once(__DIR__ . '/../config/database.php');
+    if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    }
     if (
     !isset($_SESSION['usuario']) ||
     !isset($_SESSION['usuario']['cpf']) ||
@@ -25,14 +28,46 @@
             $stmta->bindParam(':idOusuario', $idOusuario, PDO::PARAM_INT);
             $stmta->execute();
             
-            while($row = $stmtb->fetch(PDO::FETCH_ASSOC)) {
-            $idOvoo = $row['idOvoo'];
-            $stmtc = $pdo->prepare('UPDATE voo SET assentos_disponiveis = assentos_disponiveis - 1 WHERE id = :idOvoo');
-            $stmtc->bindParam(':idOvoo', $idOvoo);
-            $stmtc->execute();
-            }
+            $voosCarrinho = [];
+            while($row = $stmtb->fetch(PDO::FETCH_ASSOC)) {            
+                $idOvoo = $row['idOvoo'];
+    
+                $stmtf = $pdo->prepare('SELECT * FROM voo WHERE id = :idOvoo');
+                $stmtf->bindParam(':idOvoo', $idOvoo);
+                $stmtf->execute();
+                $voo = $stmtf->fetch(PDO::FETCH_ASSOC);
 
-            header('Location: http://localhost/skyline/frontend/index.php?mensagem=compra_sucesso');
+                if ($voo && $row) {
+                    // Buscar cidade relacionada ao voo
+                    $id_cidade = $voo['id_cidade'];
+                    $id_linha_aerea = $voo['linha_aerea_id'];
+                    
+                    $stmtd = $pdo->prepare('SELECT * FROM cidade WHERE id = :id_cidade');
+                    $stmtd->bindParam(':id_cidade', $id_cidade);
+                    $stmtd->execute();
+                    $cidade = $stmtd->fetch(PDO::FETCH_ASSOC);
+
+                    $stmte = $pdo->prepare('SELECT * FROM linha_aerea WHERE id = :id_linha_aerea');
+                    $stmte->bindParam(':id_linha_aerea', $id_linha_aerea);
+                    $stmte->execute();
+                    $linha_aerea = $stmte->fetch(PDO::FETCH_ASSOC);
+
+                    if ($cidade && $linha_aerea) {
+                        $voo['cidade'] = $cidade;
+                        $voo['linha_aerea'] = $linha_aerea;
+                    }
+
+                    // Monta estrutura com voo e passagem
+                    $voosCarrinho[] = [
+                        'voo' => $voo,
+                        'passagem' => $row
+                    ];
+                }
+            }
+            
+            $_SESSION['voosCarrinho'] = $voosCarrinho;
+
+            header('Location: http://localhost/skyline/frontend/novo_check.php');
             exit;
         
         }catch(PDOException $e){

@@ -24,6 +24,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passagens</title>
     <link rel="stylesheet" href="passagens.css">
+    <script>
+        window.onload = function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.get('mensagem') === 'passagem_diferente'){
+                alert("Existem passagens de voos difentes no seu carrinho. Efetue a Compra para comprar de voos diferentes");
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -84,15 +92,15 @@
 
                                 foreach($passagensJaNoCarrinho as $passag){
                                     if($quantidade_passagens_compradas == $row['assentos_disponiveis']){
-                                        echo "<p class='passagem-carrinho'>O valor máximo de passagens (".$quantidade_passagens_compradas. ") já foi adicionada ao carrinho</p>";
+                                        echo "<p class='passagem-carrinho'>O valor máximo de passagens (".$quantidade_passagens_compradas. ") já está em processo de compra</p>";
                                         break;
                                     }elseif($quantidade_passagens_compradas<$row['assentos_disponiveis']){
                                         echo "<input type='number' class='quantidade' min='0' value='0' max='".$row['assentos_disponiveis']-$quantidade_passagens_compradas."' name='quant'/><button class='buttonSub' type='submit' name='id' value='".$row['id']."'>Adcionar ao Carrinho</button>";
                                         if($quantidade_passagens_compradas>1){ 
-                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas." passagens foram adicionadas ao carrinho</p>";
+                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas." passagens foram adicionadas ao processo de compra</p>";
                                             break;
                                         }else{
-                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas. " passagem foi adicionada ao carrinho</p>";
+                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas. " passagem foi adicionada ao processo de compra</p>";
                                             break;
                                         }
                                     }   
@@ -146,15 +154,15 @@
 
                                 foreach($passagensJaNoCarrinho as $passag){
                                     if($quantidade_passagens_compradas == $row['assentos_disponiveis']){
-                                        echo " <p class='passagem-carrinho'>O valor máximo de passagens (".$quantidade_passagens_compradas. ") já foi adicionada ao carrinho</p>";
+                                        echo " <p class='passagem-carrinho'>O valor máximo de passagens (".$quantidade_passagens_compradas. ") já foi adicionada ao processo de compra</p>";
                                         break;
                                     }elseif($quantidade_passagens_compradas<$row['assentos_disponiveis']){
                                         echo "<input type='number' class='quantidade' min='0' value='0' max='".$row['assentos_disponiveis']-$quantidade_passagens_compradas."' name='quant'/><button class='buttonSub' type='submit' name='id' value='".$row['id']."'>Adcionar ao Carrinho</button>";
                                         if($quantidade_passagens_compradas>1){ 
-                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas." passagens foram adicionadas ao carrinho</p>";
+                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas." passagens foram adicionadas ao processo de compra</p>";
                                             break;
                                         }else{
-                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas. " passagem foi adicionada ao carrinho</p>";
+                                            echo "<p class='passagem-carrinho'>".$quantidade_passagens_compradas. " passagem foi adicionada ao processo de compra</p>";
                                             break;
                                         }
                                     }   

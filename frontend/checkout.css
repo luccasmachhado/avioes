@@ -1,0 +1,208 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+:root {
+    --bg-color: #F2F2F2;
+    --bg-color1: #f5f5f5;
+    --bg-color2: #ececec;
+    --text-color: #333;
+    --container-bg: #F2F2F2;
+    --box-bg: #EEEEEE;
+    --box-bg1:#F2F2F2;
+    --input-bg: white;
+    --summary-bg: #f0f4f8;
+    --button-bg: #103778;
+    --button-hover: #062252;
+    --border-color: #ddd;
+  }
+
+  body.dark {
+    --bg-color: #121212;
+    --bg-color1: #2a2a2a;
+    --bg-color2: #222222;
+    --text-color: #f1f1f1;
+    --container-bg: #1e1e1e;
+    --box-bg: #121212;
+    --input-bg: #333;
+    --summary-bg: #1f1f1f;
+    --button-bg: #103778;
+    --button-hover: #062252;
+    --border-color: #444;
+  }
+
+  body {
+    background-image: linear-gradient(to right,#103778,#062252);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--container-bg);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .toggle-dark {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+
+  }
+
+  .toggle-dark:hover {
+    background-color: var(--button-hover);
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px #000000d2;
+    padding: 30px;
+  }
+
+  h1 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-family: "Heebo", sans-serif;
+    font-size: 2.5em;
+  }
+
+  .section {
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+  }
+
+  .info-box {
+    background: var(--box-bg);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2em;
+  }
+
+  input, select {
+    width: 98%;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-color1);
+    color: var(--text-color);
+    outline: none;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1em;
+  }
+  span{
+        font-family: 'Inter', sans-serif;
+
+  }
+  .passageiro-box {
+    background: var(--box-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .sub-box {
+    background: var(--bg-color2);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .sub-box h4 {
+    margin-top: 0;
+    color: var(--text-color);
+  }
+  .sub-box>input,select{
+    background: var(--bg-color1);
+}
+  .summary {
+    background: var(--summary-bg);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .summary h3 {
+    margin-top: 0;
+    color: var(--text-color);
+  }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    color: var(--text-color);
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: "Noto Sans", sans-serif;
+
+  }
+
+  .btn:hover {
+    background-color: var(--button-hover);
+    font-weight: bold;
+  }
+
+  @media (max-width: 600px) {
+    .container {
+        width: 70vw;
+        margin: auto;
+        margin-top: 20px;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    .section-title {
+      font-size: 1rem;
+    }
+      input, select {
+        width: 95%;
+    }
+    .sub-box>input,select{
+        width: 92%;
+    }
+  }

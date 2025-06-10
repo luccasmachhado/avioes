@@ -47,7 +47,7 @@
     <nav id="menu"> 
         <a class="opc" href="Passagens.php">Passagens</a>
         <a class="opc" href="viagens.html">Viagens</a>
-        <a class="opc" href="TelaSobreSkyline.php">Sobre</a>
+        <a class="opc" href="Sobre.html">Sobre</a>
         <a class="opc" href="carrinho.php">Carrinho</a>
          <?php if (
             !isset($_SESSION['usuario']) ||

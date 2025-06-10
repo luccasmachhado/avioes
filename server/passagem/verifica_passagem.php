@@ -4,7 +4,7 @@ function verificar_passagem_car($idOusuario, $idOvoo){
     
     $pdo = getConnection();
 
-    $verificacao = $pdo->prepare('SELECT * FROM passagem WHERE idOusuario = :idOusuario AND compra = 0 AND idOvoo = :idOvoo');
+    $verificacao = $pdo->prepare('SELECT * FROM passagem WHERE idOusuario = :idOusuario AND (compra = 0 OR compra_def = 0) AND idOvoo = :idOvoo');
     $verificacao->bindParam(':idOusuario', $idOusuario, PDO::PARAM_INT);
     $verificacao->bindParam('idOvoo', $idOvoo, PDO::PARAM_INT);
     $verificacao->execute();
