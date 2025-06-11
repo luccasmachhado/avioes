@@ -20,10 +20,15 @@ if (empty($voosUsuario)) {
     <link rel="stylesheet" href="passagens.css">
     <script>
       window.onload = function(){
-      const urlParams = new URLSearchParams(window.location.search);
-      if(urlParams.get('mensagem') === 'passagem_deletada'){
-         alert("Passagem removida do carrinho com êxito!");
-      }}
+         const urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.get('mensagem') === 'passagem_deletada'){
+               alert("Passagem removida do carrinho com êxito!");
+            }
+            if(urlParams.get('mensagem') === 'passagem_diferente'){
+            alert("Só é possível comprar passagens de um mesmo voo por vez.");
+            }
+        }
+      
     </script>
  </head>
  <body>

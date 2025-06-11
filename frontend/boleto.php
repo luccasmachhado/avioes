@@ -1,3 +1,39 @@
+<?php 
+    require_once(__DIR__ . '/../server/passagem/put_passagem.php');
+  require_once(__DIR__ . '/../server/checkout_cache/checkout_cache_get.php');
+
+  if (
+    !isset($_SESSION['usuario']) ||
+    !isset($_SESSION['usuario']['cpf']) ||
+    !isset($_SESSION['usuario']['senha']) ||
+    !isset($_SESSION['usuario']['id'])
+  ) {
+    header('Location: http://localhost/skyline/frontend/login.html?msg=erro_nao_logado');
+    session_unset(); // limpa toda a sessão
+    exit;
+  }
+
+    $idOusuario = $_SESSION['usuario']['id'];
+  $stmt = $pdo->prepare("SELECT * FROM passageiro WHERE usuario_id = :id AND hierarquia='adm'");
+  $stmt->bindParam(':id', $$idOusuario);
+  $stmt->execute();
+  $passageiroAdm = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  if (empty($_SESSION['usuario']['voosCarrinho'])) { 
+    $voosCarrinho = get_checkout($_SESSION['usuario']['id']);
+    $_SESSION['usuario']['voosCarrinho'] = $voosCarrinho;
+    
+  }else{
+    $voosCarrinho = $_SESSION['usuario']['voosCarrinho'];
+  }
+  $NVoo = [];
+foreach($voosCarrinho as $item){
+    $voo = $item['voo'];
+    $NVoo[] = $voo;
+    break;
+}
+
+?>  
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -101,7 +137,7 @@
       <div class="campo"><strong id="nome"></strong><span>Nome do Passageiro</span></div>
       <div class="campo"><strong id="rg"></strong><span>RG</span></div>
       <div class="campo"><strong id="nasc"></strong><span>Data de Nascimento</span></div>
-      <div class="campo"><strong id="voo"></strong><span>Voo</span></div>
+      <div class="campo"><strong id="voo"><?php echo "Nº ".$NVoo[0]['id']; ?></strong><span>Voo</span></div>
       <div class="campo"><strong id="ida"></strong><span>Data de Partida</span></div>
       <div class="campo"><strong id="volta"></strong><span>Data Chegada</span></div>
       <div class="campo"><strong>Econômica/VIP</strong><span>Classe</span></div>

@@ -2,7 +2,8 @@
     require_once(__DIR__ . '/../server/voo/get_voo_mais_usados.php');
     require_once(__DIR__ . '/../server/linha_aerea/get_linha_aerea.php');
     require_once(__DIR__ . '/../server/usuario/logout.php');
-    session_start()
+    session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,12 +22,13 @@
     <script>
             window.onload = function(){
             const urlParams = new URLSearchParams(window.location.search);
-            if(urlParams.get('mensagem') === 'compra_sucesso'){
-                alert("Compra efetuada com êxito!");
+                if(urlParams.get('mensagem') === 'compra_sucesso'){
+                    alert("Compra efetuada com êxito!");
+                }
+                if(urlParams.get('mensagem') === 'add_car_sucesso'){
+                    alert("O item foi adicionado ao carrinho!");
+                }
             }
-            if(urlParams.get('mensagem') === 'add_car_sucesso'){
-                alert("O item foi adcionado ao Carrinho!");
-            }}
             
             function toggleDropdown() {
                 const dropdown = document.getElementById("perfil-dropdown");
@@ -62,7 +64,10 @@
             <div class="perfil-bolinha" onclick="toggleDropdown()">'.$inicial.'</div>
             <div id="perfil-dropdown" class="perfil-dropdown">
                 <a href="tela_usuario.php">Perfil</a>
-                <form action="tela_usuario.php" method="post">
+                '; 
+                if(!empty($_SESSION['usuario']['voosCarrinho'])) { echo'<a href="novo_check.php">Continuar Cheackout</a>';}
+                echo
+                '<form action="tela_usuario.php" method="post">
                     <input type="hidden" name="logout" value="htmlspecialchars(logout)">
                     <button type="submit">Logout</button>
                 </form>

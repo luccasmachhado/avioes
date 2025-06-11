@@ -1,5 +1,6 @@
 <?php
   require_once(__DIR__ . '/../server/passagem/put_passagem.php');
+  require_once(__DIR__ . '/../server/checkout_cache/checkout_cache_get.php');
 
   if (
     !isset($_SESSION['usuario']) ||
@@ -12,7 +13,19 @@
     exit;
   }
 
-  $voosCarrinho = $_SESSION['voosCarrinho'];
+  $idOusuario = $_SESSION['usuario']['id'];
+  $stmt = $pdo->prepare("SELECT * FROM passageiro WHERE usuario_id = :id AND hierarquia='adm'");
+  $stmt->bindParam(':id', $$idOusuario);
+  $stmt->execute();
+  $passageiroAdm = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  if (empty($_SESSION['usuario']['voosCarrinho'])) { 
+    $voosCarrinho = get_checkout($_SESSION['usuario']['id']);
+    $_SESSION['usuario']['voosCarrinho'] = $voosCarrinho;
+    
+  }else{
+    $voosCarrinho = $_SESSION['usuario']['voosCarrinho'];
+  }
 
 ?>
 
@@ -63,11 +76,14 @@
       </div>
     </div>';
     }
+    
     ?>
-
+    <?php 
+      $qntPassagens = count($voosCarrinho);
+    ?>
     <form action="bilhetes.html" method="GET">
       <label for="qtdPassageiros">Quantidade de Passageiros:</label>
-      <input type="number" id="qtdPassageiros" name="qtd" min="1" max="10" value="1" required />
+      <input type="number" id="qtdPassageiros" name="qtd" min="1" max="10" value="<?php echo $qntPassagens; ?>" required readonly />
     </form>
 
     <div class="section">
@@ -81,6 +97,7 @@
 <script>
   const qtdPassageiros = document.getElementById('qtdPassageiros');
   const passageirosContainer = document.getElementById('passageirosContainer');
+
 
   let assentosOcupados = [];
   let dadosPassageiros = [];
@@ -226,7 +243,7 @@
 
   function atualizarPassageiros() {
     passageirosContainer.innerHTML = '';
-    const quantidade = parseInt(qtdPassageiros.value) || 1;
+    const quantidade = <?php echo $qntPassagens; ?> || 1;
     for (let i = 0; i < quantidade; i++) {
       const passageiro = criarPassageiro(i);
       passageirosContainer.appendChild(passageiro);
@@ -264,12 +281,12 @@
     localStorage.setItem('passageiros', JSON.stringify(passageiros));
 
     // Redireciona para a página dos bilhetes
-    window.location.href = 'finalização.html';
+    window.location.href = 'finalização.php';
   });
 
 // Botão Voltar
 document.getElementById('voltarBtn').addEventListener('click', () => {
-  window.location.href = 'finalização.html'; // ajuste se sua página inicial for diferente
+  window.location.href = 'finalização.php'; // ajuste se sua página inicial for diferente
 });
 
 

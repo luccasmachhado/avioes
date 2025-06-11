@@ -1,6 +1,7 @@
 <?php 
     session_start();    
     require_once(__DIR__ . '/../config/database.php');
+    require_once(__DIR__ . '/../checkout_cache/checkout_cache_get.php');
     
     $pdo = getConnection();
 
@@ -21,11 +22,13 @@
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($usuario){
+            $voosCarrinho = get_checkout($usuario['id']);
             $_SESSION['usuario'] = [   
                 'id' => $usuario['id'],
                 'cpf' => $usuario['cpf'],
                 'senha' => $usuario['senha'],
-                'nome' => $usuario['nome_completo']
+                'nome' => $usuario['nome_completo'],
+                'voosCarrinho' => $voosCarrinho
             ];
             header('Location: ../../frontend/tela_usuario.php');
             exit;
