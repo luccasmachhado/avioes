@@ -1,3 +1,7 @@
+<?php
+require_once(__DIR__ . '/../server/checkout_cache/cheackout_cache_delete.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -71,7 +75,7 @@
       Data: <span id="data"></span>
     </div>
     <form action='' method="post">
-      <button type="submit">Voltar</button>
+      <button type="submit" name="deleta_cach" value="compra">Voltar</button>
     </form>
   </div>
 

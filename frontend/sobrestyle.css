@@ -13,8 +13,7 @@
 /* ======================== SEÇÃO BODY ======================== */
 body {
   font-family: Arial, sans-serif;
-  height: 150vh;
-  background: url("Imagens/imgsobre.jpg") no-repeat;
+  background: url("Imagens/imgsobre.jpg") repeat-y;
   background-size: cover;
 }
 
@@ -217,7 +216,6 @@ form {
 
 input {
   margin: 10px;
-  margin-left: 10px;
   width: 620px;
   height: 60px;
   box-sizing: border-box;

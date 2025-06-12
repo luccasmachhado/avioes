@@ -166,13 +166,52 @@
 
 <script>
   const passageiros = JSON.parse(localStorage.getItem('passageiros')) || [];
+  
   const voosCarrinho = <?php echo json_encode($voosCarrinho); ?>;
+  const usuario = <?php echo json_encode($_SESSION['usuario']) ?>;
   let valorBaseTotal = 0;
+  
   voosCarrinho.forEach((p, index) => {
     const voo = voosCarrinho[index]?.voo || {};
     valorBaseTotal += parseFloat(voo.preco) || 0;
   });
 
+  const bilheteUsuario = document.createElement('div');
+bilheteUsuario.className = 'boarding-pass';
+
+const vooUsuario = voosCarrinho[0]?.voo || {}; // assume 1º voo pro usuário
+
+bilheteUsuario.innerHTML = `
+  <div class="header">
+    <div>PASSAGEM AÉREA</div>
+    <div>SKLINE</div>
+  </div>
+
+  <div class="main">
+    <div class="section">
+      <div class="info"><span class="label">Nome:</span> <span class="value">${usuario.nome}</span></div>
+      <div class="info"><span class="label">RG:</span> <span class="value">${usuario.rg || 'N/A'}</span></div>
+      <div class="info"><span class="label">Assento:</span> <span class="value">1</span></div>
+      <div class="info"><span class="label">Classe:</span> <span class="value">${usuario.classe || 'Econômica'}</span></div>
+      <div class="info"><span class="label">Plano:</span> <span class="value">${usuario.plano || 'Padrão'}</span></div>
+    </div>
+
+    <div class="section">
+      <div class="info"><span class="label">Linha:</span> <span class="value">${vooUsuario.linha_aerea?.nome || 'N/A'}</span></div>
+      <div class="info"><span class="label">Voo Nº:</span> <span class="value">${vooUsuario.id || 'N/A'}</span></div>
+      <div class="info"><span class="label">Cidade:</span> <span class="value">${vooUsuario.cidade?.nome || 'N/A'}</span></div>
+      <div class="info"><span class="label">Destino:</span> <span class="value">${vooUsuario.destino || 'N/A'}</span></div>
+      <div class="info"><span class="label">Preço:</span> <span class="value">${vooUsuario.preco || 'N/A'}</span></div>
+    </div>
+  </div>
+
+  <div class="barcode"></div>
+  <div class="footer">Obrigado por voar com a SKLINE</div>
+`;
+
+document.body.appendChild(bilheteUsuario);
+
+  if(passageiros.length > 1){
   passageiros.forEach((p, index) => {
     const bilhete = document.createElement('div');
     bilhete.className = 'boarding-pass';
@@ -189,7 +228,7 @@
         <div class="section">
           <div class="info"><span class="label">Nome:</span> <span class="value">${p.nome}</span></div>
           <div class="info"><span class="label">RG:</span> <span class="value">${p.rg}</span></div>
-          <div class="info"><span class="label">Assento:</span> <span class="value">${index + 1}</span></div>
+          <div class="info"><span class="label">Assento:</span> <span class="value">${index + 2}</span></div>
           <div class="info"><span class="label">Classe:</span> <span class="value">${p.classe}</span></div>
           <div class="info"><span class="label">Plano:</span> <span class="value">${p.plano}</span></div>
         </div>
@@ -208,6 +247,7 @@
     `;
     document.body.appendChild(bilhete);
   });
+  }
   
 </script>
 
@@ -283,12 +323,12 @@
 
   botaoBoleto.addEventListener("click", () => {
     const passageiro = passageiros[0];
-    const url = `boleto.php?nome=${encodeURIComponent(passageiro.nome)}&rg=${passageiro.rg}&nasc=${passageiro.nascimento}&valorTotal=${valorBaseTotal}`;
+    const url = `boleto.php?valorTotal=${valorBaseTotal}`;
     window.location.href = url;
   });
 
   confirmarPixBtn.addEventListener("click", () => {
-    window.location.href = "pix-confirmado.html";
+    window.location.href = "pix-confirmado.php";
   });
 
   confirmarCartaoBtn.addEventListener("click", () => {
@@ -305,7 +345,7 @@
       return;
     }
 
-    window.location.href = "CARTAO_CONFIRMAÇÃO.html";
+    window.location.href = "CARTAO_CONFIRMAÇÃO.php";
   });
   
   function atualizarValor() {

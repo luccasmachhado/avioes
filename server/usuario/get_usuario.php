@@ -1,5 +1,7 @@
 <?php 
-    session_start();    
+    if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    }    
     require_once(__DIR__ . '/../config/database.php');
     require_once(__DIR__ . '/../checkout_cache/checkout_cache_get.php');
     
@@ -28,6 +30,10 @@
                 'cpf' => $usuario['cpf'],
                 'senha' => $usuario['senha'],
                 'nome' => $usuario['nome_completo'],
+                'rg' => $usuario['rg'],
+                'sexo' => $usuario['sexo'],
+                'nascimento' => $usuario['data_nascimento'],
+                'pcd' => $usuario['portador_def'],
                 'voosCarrinho' => $voosCarrinho
             ];
             header('Location: ../../frontend/tela_usuario.php');

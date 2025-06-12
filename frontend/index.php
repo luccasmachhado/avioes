@@ -1,8 +1,25 @@
-<?php    
+<?php
     require_once(__DIR__ . '/../server/voo/get_voo_mais_usados.php');
     require_once(__DIR__ . '/../server/linha_aerea/get_linha_aerea.php');
+    require_once(__DIR__ . '/../server/checkout_cache/cheackout_cache_delete.php');
+
+
+    require_once(__DIR__ . '/../server/checkout_cache/verificar_check.php');
     require_once(__DIR__ . '/../server/usuario/logout.php');
+    
+    if (session_status() === PHP_SESSION_NONE) {
     session_start();
+    }
+    if (
+    isset($_SESSION['usuario']) ||
+    isset($_SESSION['usuario']['cpf']) ||
+    isset($_SESSION['usuario']['senha']) ||
+    isset($_SESSION['usuario']['id'])
+  ) {
+    $idOusuario = $_SESSION['usuario']['id'];
+    $check = verificarCheck($idOusuario);
+  }
+
 
 ?>
 <!DOCTYPE html>
@@ -27,6 +44,15 @@
                 }
                 if(urlParams.get('mensagem') === 'add_car_sucesso'){
                     alert("O item foi adicionado ao carrinho!");
+                }
+                if(urlParams.get('mensagem') === 'add_car_sucesso'){
+                    alert("O item foi adicionado ao carrinho!");
+                }
+                if(urlParams.get('mensagem') === 'compra_finalizada'){
+                    alert("Compra Finalizada");
+                }
+                if(urlParams.get('mensagem') === 'compra_cancelada'){
+                    alert("Checkout cancelado");
                 }
             }
             
@@ -65,7 +91,10 @@
             <div id="perfil-dropdown" class="perfil-dropdown">
                 <a href="tela_usuario.php">Perfil</a>
                 '; 
-                if(!empty($_SESSION['usuario']['voosCarrinho'])) { echo'<a href="novo_check.php">Continuar Cheackout</a>';}
+                if(!empty($check)) { echo'<a href="novo_check.php">Continuar Cheackout</a>
+                <form action="" method="post">
+                    <button type="submit" name="deleta_cach" value="index">Cancelar Checkout</button>
+                </form>';}
                 echo
                 '<form action="tela_usuario.php" method="post">
                     <input type="hidden" name="logout" value="htmlspecialchars(logout)">
@@ -81,7 +110,9 @@
     </header>
     <main>
         <section class="container" id="destinos">
-            <h2>Seu próximo destino inesquecível começa aqui. Confira os lugares visitados abaixo!</h2>
+            <div class="destino">
+                <h3>Seu próximo destino inesquecível começa aqui. Confira os lugares visitados abaixo!</h3>
+            </div>
                 <section class="container" id="destinos">
                     <?php
                         $i = 0;
@@ -94,53 +125,13 @@
                                 <p>".$row['cidade']['nome']."</li></p>
                                 <p>".$row['cidade']['descricao']."</p>
                             </ul>
-                            <a href='#' class='btn'>Explorar</a></div>";
+                            <a href='Passagens.php' class='btn'>Explorar</a></div>";
                             $i = $i+1;
                         }
                     ?>
                 </section>
         </section>
-        <section id="Passagens">
-            <form action="passagens.php" method="get">
-                <div class="passg">
-                    <div id="origem">
-                          <select name="iCity" id="Cityv">
-                        <option  value="Op">Origem</option>
-                        <option  value="Ft">Fortaleza</option>
-                        <option  value="Mn">Maracanau</option>
-                        <option  value="Bh">Bahia</option>
-                        <option  value="Rj">Rio de Janeiro</option>
-                        <option  value="SP">São Paulo</option>
-                        </select>
-                    </div>
-                    <div id="destino">
-                        <label for="CityI"></label>
-                        <select name="iCityi" id="Cityi">
-                        <option value="">Destino</option>
-                        <option value="NY">Nova York</option>
-                        <option value="RM">Coliseu da Roma</option>
-                        <option value="Bg">Belgica</option>
-                        <option value="Fç">França</option>
-                        <option value="Pr">Paris</option>
-                    </select>
-                    </div>
-                    <div id="destino">
-                        <input id="datas" placeholder="Data de Partida">
-                        <script>
-                        flatpickr("#datas", {
-                        mode: "single",
-                        dateFormat: "d/m/Y",
-                        locale: "pt"
-                        });
-                        </script>
-                    </div>
-                    <div id="button">
-                        <button type="submit"><img src="Imagens/icon-search.svg" alt=""></button>                            
-                    </div>
-                </div>
-
-                    </form>
-            </section>
+        
         <section id="Familia">
                 <h2>Quem viaja com a Skyline, recomenda!</h2>
             <section id="family">

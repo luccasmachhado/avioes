@@ -10,34 +10,36 @@
 <body>
      <header>
         <nav id="menu">
+        <a class="opc" href="index.php">Home</a>
         <a class="opc" href="Passagens.html">Passagens</a>
         <a class="opc" href="#">Viagens</a>
         <a class="opc" href="#">Sobre</a>
         <a class="opc" href="login.html">Login</a>
     </nav>
     </header>
-    <div>
-        <form action="../server/usuario/post_usuario.php" method="post" id="cad">
+        <form action="../server/usuario/post_usuario.php" method="post">
+        <div class="formulario-cadastro">
             <label for="NomeC"></label>
             <input class="blur" type="text" name="nome_completo" id="NomeC" required minlength="6" maxlength="50" placeholder="Nome Completo">
+            
             <label for="cpfc"></label>
             <input class="blur" type="text" name="cpf" id="cpfc" required maxlength="11" placeholder="CPF">
-             <label for="rgc"></label>
+             
+            <label for="rgc"></label>
             <input class="blur" type="text" name="rg" id="rgc" required maxlength="9" placeholder="RG">
-            <label>PCD</label>
-            <input class="blur" type="checkbox" name="portador_deficiencia" id="pcdc" value="1">
-            <label>Masculino</label>
-            <input class="blur" type="radio" name="sexo" id="sexomc" value="M">
-            <label>Feminino</label>
-            <input class="blur" type="radio" name="sexo" id="sexofc" value="F">
+            
+            
+            
             <label for="datac"></label>
             <input class="blur" type="date" name="data_nascimento" id="datac" required value="1950-01-01">
+            
             <label for="emailc"></label>
             <input class="blur" type="email" name="email" id="emailc" required placeholder="Email">
+
             <label for="senhac"></label>
             <input class="blur" type="password" name="senha" id="senhac" required maxlength="12" minlength="6" placeholder="Senha">
             <input type="submit" id="entra" value="Cadastrar">
+            </div>
         </form>
-    </div>
 </body>
 </html>

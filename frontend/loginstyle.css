@@ -1,199 +1,147 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-*{
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap');
 
-nav {
-    display: flex;
-    justify-content: right;
-    text-align: right;
-    padding: 10px;
-    height: 17vh;
-    background-image: linear-gradient(to bottom,#000000d8 5%,transparent);
-
-}
-
-nav#menu > a {
-    padding: 15px;
-    margin: 15px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0.212);
-    border-radius: 15px;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    min-width: 150px; 
-    min-height: 50px;
-    text-align: center;
-    transition:  0.4s;
-    font-weight: normal;
-}
-nav#menu a:hover{
-    font-size: 1.3em;
-    border: 2px solid white;
-    background-color: rgba(245, 245, 245, 0.247);
-
 }
 
-body{
-    background-image: url("Imagens/papeldeparedelogin.webp");
-    background-repeat: no-repeat;
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background: url("Imagens/papeldeparedelogin.webp") no-repeat center top;
     background-size: cover;
-    background-position: center top;
-    image-rendering: auto;
-    height: 100vh;
-}
-form{
-    display: flex;
-    position: absolute;
-    top: 57%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 350px;
-    padding: 10px;
-    text-align: center;
-    align-items: center;
-    background-color: #00000098;
-    border-radius: 25px;
-    backdrop-filter: blur(3px);
-    }
-form{
+    color: white;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    margin: auto;
-}
-form#cad{
-    height: 500px;
-}
-form#cad>input{
-    width: 290px;
-    margin: 12px;
-}
-form#cad>input#entra{
-    width: 291px;
-}
-input{
-     margin: 10px;
-    padding: 15px;
-    border: none;
-    border-radius: 15px;
-    padding: 15px;
-    width: 270px;
-    height: 60px;
-    outline: none;
-    font-size: 15px;
-    font-weight: normal;
-    background-color: rgb(5, 5, 5);
-}
-.blur{
-    color: white;
-    border-radius: 0px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.356);
-    border-bottom: 3px solid rgba(0, 0, 0, 0.795);
-        font-family: "Noto Sans", sans-serif;
-
-    transition: all 0.2s;
-}
-.blur:hover{
-    border-bottom: 4px solid black;
-    background-color: rgba(0, 0, 0, 0.486);
-    font-size: 18px;
-
-}
-.login{
-    height: 470px;
-}
-input#entra{
-    margin-top: 20px;
-    font-family: "Noto Sans", sans-serif;
-    transition: 0.2s;
-    font-size: 20px;
-    margin: 10px;
-    padding: 15px;
-    width: 270px;
-    height: 60px;
-    border: none;
-    border-radius: 15px;
-    color: white;
-}
-input#entra:hover{
-    color: white;
-    background-color: black;
-    width: 275px;
-    height: 61px;
-    font-size: 22px;
-}a {
-    font-size: 1.2em;
-    font-family: "Inter", sans-serif;
-    text-decoration: none;
-    color: white;
-}
-a#img:hover{
-    font-size: 0em;
-    padding: 0px;
-}
-a:hover {
-    font-size: 1.3em;
-    padding: 12px;
 }
 
-picture{
+/* Navegação */
+nav#menu {
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 15px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
 }
-img{
-    width: 60%;
-}
-@media (max-width: 768px) {
-    nav#menu{
-        background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.788),transparent);
-        height: 25vh;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        align-items: center;
-    }
-    nav#menu a{
-        padding: 10px;
-        margin: auto;
-    }
-    body{
-        background-position: top center;
-        height: 110vh;
-    }
-    .login{
-        width: 320px;
-    }
-    .login>img{
-        width: 50%;
-    }
-    form{
-        top: 68%;
-    }
-    form#cad{
-        width: 320px;
-    }
-    form#cad>input{
-        width: 250px;
-    }
-    form#cad>input#entra{
-        width: 240px;
-    }
-    form#cad>input#entra:hover{
-        width: 245px;
-    }
-}
-p,a#cad{
-    font-family: "Noto Sans", sans-serif;
+
+nav#menu a {
+    margin: 8px;
+    padding: 10px 20px;
+    border-radius: 30px;
     color: white;
     text-decoration: none;
-    font-size: 1em;
-    margin: 5px;
-    padding: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
-a#cad:hover{
-    text-decoration: underline;
-    margin-left: 6px;
+
+nav#menu a:hover {
+    background: white;
+    color: black;
+    font-weight: 600;
+}
+
+/* Formulário */
+form.formulario-cadastro {
+    margin: auto;
+    margin-top: 40px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"] {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+form input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid white;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Radio e checkbox estilizados */
+.selecionar-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.95em;
+}
+
+.selecionar-botoes label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: white;
+    transform: scale(1.2);
+}
+
+/* Botão */
+input#entra {
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 1.1em;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+input#entra:hover {
+    background: black;
+    color: white;
+    border: 2px solid white;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    nav#menu {
+        flex-direction: column;
+    }
+
+    form.formulario-cadastro {
+        margin: 60px auto;
+        width: 90%;
+        padding: 20px;
+    }
+
+    nav#menu a {
+        width: 90%;
+        text-align: center;
+    }
 }

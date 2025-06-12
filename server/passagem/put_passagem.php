@@ -1,5 +1,6 @@
 <?php
     require_once(__DIR__ . '/../config/database.php');
+    require_once(__DIR__ . '/../checkout_cache/verificar_check.php');
     if (session_status() === PHP_SESSION_NONE) {
     session_start();
     }
@@ -20,12 +21,21 @@
     $idOusuario = $_SESSION['usuario']['id'];
 
         try{
+            
+            $checkoutEmAndamento = verificarCheck($idOusuario);
+            
+            if (!empty($checkoutEmAndamento)) {
+            header('Location: http://localhost/skyline/frontend/carrinho.php?mensagem=checkoutJaEmAndamento');
+            exit;
+            }
+
             $stmtb = $pdo->prepare('SELECT * FROM passagem WHERE idOusuario = :idOusuario AND compra = 0');
             $stmtb->bindParam(':idOusuario', $idOusuario);
             $stmtb->execute();
             
             $ids_voos = [];
             $voosCarrinho = [];
+            $qntPassagens = 0;
             while($row = $stmtb->fetch(PDO::FETCH_ASSOC)) {  
                     $ids_voos [] = $row['idOvoo'];     
                     $idOvoo = $row['idOvoo'];
@@ -70,12 +80,18 @@
                         ':dados' => json_encode(['voo' => $voo, 'passagem' => $row])
                         ]);
                     }
+                $qntPassagens++;
             }
 
             if (count(array_unique($ids_voos)) > 1) {
             header('Location: http://localhost/skyline/frontend/carrinho.php?mensagem=passagem_diferente');
             exit;
             }
+
+            $DecrementarAssento = $pdo->prepare('UPDATE voo SET assentos_disponiveis = assentos_disponiveis - :qntPassagens WHERE id = :id_voo');
+            $DecrementarAssento->bindParam(':qntPassagens', $qntPassagens);
+            $DecrementarAssento->bindParam(':id_voo', $ids_voos[0], PDO::PARAM_INT);
+            $DecrementarAssento->execute();
 
             $stmta = $pdo->prepare('UPDATE passagem SET compra = 1 WHERE idOusuario = :idOusuario AND compra = 0');
             $stmta->bindParam(':idOusuario', $idOusuario, PDO::PARAM_INT);

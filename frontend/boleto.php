@@ -1,6 +1,7 @@
 <?php 
     require_once(__DIR__ . '/../server/passagem/put_passagem.php');
   require_once(__DIR__ . '/../server/checkout_cache/checkout_cache_get.php');
+require_once(__DIR__ . '/../server/checkout_cache/cheackout_cache_delete.php');
 
   if (
     !isset($_SESSION['usuario']) ||
@@ -134,12 +135,12 @@ foreach($voosCarrinho as $item){
     <div class="linha-digitavel">23790.12345 60000.123456 70000.123456 1 91230000079900</div>
 
     <div class="dados-boleto">
-      <div class="campo"><strong id="nome"></strong><span>Nome do Passageiro</span></div>
-      <div class="campo"><strong id="rg"></strong><span>RG</span></div>
-      <div class="campo"><strong id="nasc"></strong><span>Data de Nascimento</span></div>
+      <div class="campo"><strong ><?php echo $_SESSION['usuario']['nome'] ?></strong><span>Nome do Passageiro Administrador</span></div>
+      <div class="campo"><strong><?php echo $_SESSION['usuario']['rg'] ?></strong><span>RG</span></div>
+      <div class="campo"><strong><?php echo $_SESSION['usuario']['nascimento'] ?></strong><span>Data de Nascimento</span></div>
       <div class="campo"><strong id="voo"><?php echo "Nº ".$NVoo[0]['id']; ?></strong><span>Voo</span></div>
-      <div class="campo"><strong id="ida"></strong><span>Data de Partida</span></div>
-      <div class="campo"><strong id="volta"></strong><span>Data Chegada</span></div>
+      <div class="campo"><strong><?php echo $NVoo[0]['data_chegada']; ?></strong><span>Data de Partida</span></div>
+      <div class="campo"><strong><?php echo $NVoo[0]['data_chegada']; ?></strong><span>Data Chegada</span></div>
       <div class="campo"><strong>Econômica/VIP</strong><span>Classe</span></div>
       <div class="campo"><strong id="valorTotal"></strong><span>Valor</span></div>
       <div class="campo"><strong>06/06/2025</strong><span>Data de Vencimento</span></div>
@@ -153,13 +154,13 @@ foreach($voosCarrinho as $item){
     <button onclick="window.print()">Imprimir Boleto</button>
   </div>
 
+  <form action='' method="post">
+      <button type="submit" name="deleta_cach">Voltar</button>
+  </form>
+
   <script>
     // Pega os dados da URL
     const params = new URLSearchParams(window.location.search);
-
-    document.getElementById('nome').textContent = params.get('nome') || '';
-    document.getElementById('rg').textContent = params.get('rg') || '';
-    document.getElementById('nasc').textContent = params.get('nasc') || '';
     document.getElementById('valorTotal').textContent = params.get('valorTotal') || '';
 
   </script>

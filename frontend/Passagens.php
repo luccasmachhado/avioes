@@ -1,4 +1,15 @@
 <?php
+    session_start();
+    if (
+    !isset($_SESSION['usuario']) ||
+    !isset($_SESSION['usuario']['cpf']) ||
+    !isset($_SESSION['usuario']['senha']) ||
+    !isset($_SESSION['usuario']['id'])
+    ) {
+    header('Location: http://localhost/skyline/frontend/login.html?msg=erro_nao_logado');
+    session_unset(); // limpa toda a sessão
+    exit;
+    }
     require_once(__DIR__ . '/../server/voo/get_voos_pesquisados.php');
     require_once(__DIR__ . '/../server/voo/get_voo.php');
     require_once(__DIR__ . '/../server/passagem/post_passagem.php');
@@ -36,9 +47,10 @@
 <body>
     <header>
        <nav id="menu">
+        <a class="opc" href="index.php">Home</a>
         <a class="opc" href="Passagens.php">Passagens</a>
         <a class="opc" href="viagens.html">Viagens</a>
-        <a class="opc" href="TelaSobreSkyline.php">Sobre</a>
+        <a class="opc" href="Sobre.html">Sobre</a>
         <a class="opc" href="login.html">Login</a>
         </nav>
     </header>

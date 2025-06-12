@@ -27,6 +27,21 @@
     $voosCarrinho = $_SESSION['usuario']['voosCarrinho'];
   }
 
+  $logado = $_SESSION['usuario']['cpf'];
+
+date_default_timezone_set('America/Sao_Paulo');
+
+$dataAtual = new DateTime(); // Data atual
+$dataNascimento = new DateTime($_SESSION['usuario']['nascimento']); // Data de nascimento vinda da sessão
+
+$idade = $dataAtual->diff($dataNascimento)->y;
+
+if(($_SESSION['usuario']['pcd']) == 1){
+  $pcd = 'PCD';
+}else{
+  $pcd = 'Típico';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -78,16 +93,25 @@
     }
     
     ?>
-    <?php 
-      $qntPassagens = count($voosCarrinho);
-    ?>
-    <form action="bilhetes.html" method="GET">
-      <label for="qtdPassageiros">Quantidade de Passageiros:</label>
-      <input type="number" id="qtdPassageiros" name="qtd" min="1" max="10" value="<?php echo $qntPassagens; ?>" required readonly />
-    </form>
+    <div class="section-title">Passageiro Administrador</div>
 
+    <div class="info-box"><label>Nome</label><input type="text" value="<?php echo $_SESSION['usuario']['nome'] ?>" disabled /></div>
+    <div class="info-box"><label>RG</label><input type="text" value="<?php echo $_SESSION['usuario']['rg'] ?>" disabled /></div>
+    <div class="info-box"><label>Idade</label><input type="text" value="<?php echo $idade ?>" disabled /></div>
+    <div class="info-box"><label>Deficiência</label><input type="text" value="<?php echo $pcd ?>" disabled /></div>
+    <div class="info-box"><label>CPF</label><input type="text" value="<?php echo $_SESSION['usuario']['cpf'] ?>" disabled /></div>
+
+    <?php 
+      $qntPassagens = (count($voosCarrinho))-1;
+    ?>
+        
+    <form action="bilhetes.html" method="GET">
+      <label for="qtdPassageiros">Quantidade de Acompanhantes:</label>
+      <input type="number" id="qtdPassageiros" name="qtd" min="1" max="10" value="<?php echo $qntPassagens ?>" required readonly />
+    </form>
+    
     <div class="section">
-      <div class="section-title">Dados dos Passageiros</div>
+      <div class="section-title">Dados dos Acompanhantes</div>
       <div id="passageirosContainer"></div>
     </div>
 
@@ -96,7 +120,9 @@
 
 <script>
   const qtdPassageiros = document.getElementById('qtdPassageiros');
+  if(qtdPassageiros > 0){
   const passageirosContainer = document.getElementById('passageirosContainer');
+  }
 
 
   let assentosOcupados = [];
@@ -112,20 +138,8 @@
     }
     return idade;
   }
-  <?php
-    $idVooDaCheck; 
-    foreach($voosCarrinho as $item){
-      $voo = $item['voo'];
-      $idVooDaCheck = $item['voo']['id'];
-      break; 
-    }
-    $stmtAssentos = $pdo->prepare('SELECT * FROM voo WHERE id = :idOvoo');
-    $stmtAssentos->bindParam(':idOvoo', $idVooDaCheck);
-    $stmtAssentos->execute();
-    $VooDaCheck = $stmtAssentos->fetch(PDO::FETCH_ASSOC);
-  ?>
   
-  const NumereoAssentosVoo = <?php echo json_encode($VooDaCheck['assentos_disponiveis']); ?>;
+  const NumereoAssentosVoo = <?php echo json_encode($voosCarrinho[0]['voo']['assentos_disponiveis']); ?>;
   function assento(index) {
     const div = document.createElement('div');
     div.className = "mapa-assentos";
@@ -151,7 +165,7 @@
     const dados = dadosPassageiros[index] || {};
     const box = document.createElement('div');
     box.className = 'passageiro-box';
-    box.innerHTML = `<h3>Passageiro ${index + 1}</h3>`;
+    box.innerHTML = `<h3>Acompanhante ${index + 1 }</h3>`;
 
     const subBox = document.createElement('div');
     subBox.className = 'sub-box';
