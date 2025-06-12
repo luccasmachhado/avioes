@@ -465,6 +465,7 @@
         $voo = $item['voo'];
         $cidade = $item['cidade'];
         $linha = $item['linha_aerea'];
+        $passagem = $item['passagem'];
         
       echo
       '
@@ -478,6 +479,7 @@
           <div class="passagens-section">
             <div class="info-section">
               <div class="passagem-card">
+                <h2>Passagem Nº '.$passagem['id'].'</h2>
                 <h2>Voo Nº '.$voo['id'].'</h2>
                 <div class="info-item"><span>Companhia Aérea: '.$linha['nome'].'</span></div>
                 <div class="info-item"><span>Origem: '.$voo['origem'].'</span></div>

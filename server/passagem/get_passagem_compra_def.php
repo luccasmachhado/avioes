@@ -12,6 +12,7 @@ $voosUsuario = [];
 
 while($passagens = $pegarPassagensComp->fetch(PDO::FETCH_ASSOC)){
     $idOvoo = $passagens['idOvoo'];
+    $idPassagem = $passagens['id'];
     
     $vooStmt = $pdo->prepare('SELECT * FROM voo WHERE id = :idOvoo');
     $vooStmt->bindParam(':idOvoo', $idOvoo, PDO::PARAM_INT);
@@ -30,12 +31,18 @@ while($passagens = $pegarPassagensComp->fetch(PDO::FETCH_ASSOC)){
     $pegaLinha->bindParam(':linha_aerea_id', $linha_aera_id);
     $pegaLinha->execute();
     $linha = $pegaLinha->fetch(PDO::FETCH_ASSOC);
+    
+    $pegaPassagemEsp = $pdo->prepare('SELECT * FROM passagem WHERE id = :idPassagem ');
+    $pegaPassagemEsp->bindParam(':idPassagem', $idPassagem);
+    $pegaPassagemEsp->execute();
+    $passagemDeAgora = $pegaPassagemEsp->fetch(PDO::FETCH_ASSOC);
                 
     if ($voo && $cidade && $linha) {
         $voosUsuario[] = [
         'voo' => $voo,
         'cidade' => $cidade,
-        'linha_aerea' => $linha
+        'linha_aerea' => $linha,
+        'passagem' => $passagemDeAgora
         ];
     }
 
