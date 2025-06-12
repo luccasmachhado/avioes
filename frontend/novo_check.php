@@ -52,6 +52,50 @@ if(($_SESSION['usuario']['pcd']) == 1){
   <title>Checkout</title>
   <link rel="stylesheet" href="checkstyle.css" />
 </head>
+<header style="width: 100%;
+          background-color: orange;
+          padding: 16px 0;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          margin-bottom: 30px;">
+          <nav style="max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          flex-wrap: wrap;">
+            <a styele="color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="index.php">Home</a>
+            <a styele="color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="Passagens.php">Passagens</a>
+            <a styele="color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="viagens.html">Viagens</a>
+            <a styele="color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="TelaSobreSkyline.php">Sobre</a>
+            </nav>
+</header>
 <body>
   <div class="top-bar">
     <span>✈️ Checkout</span>

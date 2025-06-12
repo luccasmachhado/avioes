@@ -48,13 +48,6 @@ if (empty($voosUsuario)) {
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
           border-radius: 8px;" href="TelaSobreSkyline.php">Sobre</a>
-            <a styele="color: var(--branco);
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 1.1rem;
-          transition: color 0.3s ease, transform 0.2s ease;
-          padding: 8px 16px;
-          border-radius: 8px;" href="login.html">Login</a>
             </nav>
       </header><p>Nenhum voo no carrinho.</p>';
     exit;

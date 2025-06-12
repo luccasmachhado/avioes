@@ -474,7 +474,7 @@
       margin-bottom: 20px;
       color: var(--laranja);
       border-bottom: 2px solid var(--laranja);
-      padding-bottom: 8px;"><span>Voo para '.$cidade['nome'].'</span></div>
+      padding-bottom: 8px;"><span>Passagem para '.$cidade['nome'].'</span></div>
           <div class="passagens-section">
             <div class="info-section">
               <div class="passagem-card">
