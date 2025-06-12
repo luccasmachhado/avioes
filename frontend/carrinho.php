@@ -78,6 +78,9 @@ if (empty($voosUsuario)) {
             if(urlParams.get('mensagem') === 'passagem_diferente'){
             alert("Só é possível comprar passagens de um mesmo voo por vez.");
             }
+            if(urlParams.get('mensagem') === 'checkoutJaEmAndamento'){
+            alert("Ja há um checkout em andamento");
+            }
         }
       
     </script>

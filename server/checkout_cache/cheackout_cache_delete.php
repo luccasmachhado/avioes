@@ -53,6 +53,7 @@ if (session_status() === PHP_SESSION_NONE) {
       }
 
       header('Location: http://localhost/skyline/frontend/index.php?mensagem=compra_cancelada');
+      exit;
     }
 
     }

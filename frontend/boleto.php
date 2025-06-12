@@ -155,7 +155,7 @@ foreach($voosCarrinho as $item){
   </div>
 
   <form action='' method="post">
-      <button type="submit" name="deleta_cach">Voltar</button>
+      <button type="submit" name="deleta_cach" value="compra">Voltar</button>
   </form>
 
   <script>
