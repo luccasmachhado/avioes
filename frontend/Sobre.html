@@ -4,12 +4,422 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre</title>
-    <link rel="stylesheet" href="sobrestyle.css">
     <link rel="shortcut icon" href="Imagens/aviaoicon.ico" type="image/x-icon">
+          <style>
+        :root {
+          --laranja: #f57c00;
+          --branco: #ffffff;
+          --azul-escuro: #0d1b2a;
+        }
+
+        /* Estilo para o cabeçalho e menu */
+        header {
+          width: 100%;
+          background-color: var(--laranja);
+          padding: 16px 0;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          margin-bottom: 30px;
+        }
+
+        #menu {
+          max-width: 1252px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          flex-wrap: wrap;
+        }
+
+        .opc {
+          color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;
+        }
+
+        .opc:hover {
+          background-color: var(--branco);
+          color: var(--laranja);
+          transform: scale(1.05);
+        }
+
+        .opc:active {
+          transform: scale(0.95);
+        }
+
+        @media (max-width: 600px) {
+          #menu {
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+          }
+
+          .opc {
+            font-size: 1rem;
+          }
+        }
+
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: var(--azul-escuro);
+          color: var(--branco);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 40px 20px;
+        }
+
+        .container {
+          margin: 10px;
+          border-radius: 16px;
+          align-items: center;
+          background-color: white;
+          padding: 10px;
+          width: 1280px;
+        }
+        .passagem{
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+        }
+
+        .macroInformacoes {
+          display: flex;
+          flex-direction: column;
+          align-items:flex-start;
+        }
+
+        .container-adm {
+          width: 1252px;
+        }
+
+        .container-adm .info-section {
+          background-color: var(--branco);
+          border-radius: 16px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+          color: var(--azul-escuro);
+          padding: 20px;
+        }
+
+        .welcome-container {
+          text-align: center;
+          background-color: var(--laranja);
+          padding: 40px 60px;
+          border-radius: 16px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+          margin-bottom: 30px;
+          width: 1200px;
+        }
+
+        .welcome-container h1 {
+          margin: 0;
+          font-size: 2.5rem;
+          color: var(--branco);
+        }
+
+        .username {
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: var(--azul-escuro);
+          margin-top: 10px;
+        }
+
+        .info-section-adm {
+          background-color: var(--branco);
+          border-radius: 16px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+          color: var(--azul-escuro);
+          width: 100%;
+          padding: 10px;
+          
+        }
+
+        .info-section-adm h2 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+          color: var(--laranja);
+          border-bottom: 2px solid var(--laranja);
+        }
+
+        .info-adm-item- {
+          margin-bottom: 12px;
+          font-size: 1.1rem;
+        }
+
+        .info-adm-item span {
+          font-weight: 600;
+        }
+
+        .info-section {
+          background-color: var(--branco);
+          border-radius: 16px;
+          color: var(--azul-escuro);
+          
+        }
+
+        .info-section h2 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+          color: var(--laranja);
+          border-bottom: 2px solid var(--laranja);
+          padding-bottom: 8px;
+        }
+
+        .info-item {
+          margin-bottom: 12px;
+          font-size: 1.1rem;
+        }
+
+        .info-item span {
+          font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+          .welcome-container,
+          .info-section {
+            padding: 30px 20px;
+          }
+
+          .welcome-container h1 {
+            font-size: 2rem;
+          }
+
+          .username {
+            font-size: 1.5rem;
+          }
+
+          .info-section h2 {
+            font-size: 1.5rem;
+          }
+        }
+
+        .passagens-section {
+          background-color: var(--branco);
+          border-radius: 16px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+          color: var(--azul-escuro);
+          margin-top: 30px;
+        }
+
+        .passagens-section h2 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+          color: var(--laranja);
+          border-bottom: 2px solid var(--laranja);
+          padding-bottom: 8px;
+        }
+
+        .passagem-card {
+          border: 1px solid var(--laranja);
+          border-radius: 12px;
+          padding: 20px;
+          margin-bottom: 20px;
+          background-color: #f9f9f9;
+        }
+
+        .passagem-card .info-item {
+          font-size: 1rem;
+          margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+          .passagens-section h2 {
+            font-size: 1.5rem;
+          }
+
+          .passagem-card {
+            padding: 15px;
+          }
+
+          .passagem-card .info-item {
+            font-size: 0.95rem;
+          }
+        }
+
+        .btn-modificar {
+          background-color: var(--laranja);
+          color: var(--branco);
+          padding: 10px 20px;
+          font-size: 1rem;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease;
+          margin-top: 10px;
+        }
+
+        .btn-modificar:hover {
+          background-color: #e06b00;
+          transform: scale(1.03);
+        }
+
+        .btn-modificar:active {
+          transform: scale(0.98);
+        }
+
+        .passagem-actions {
+          text-align: right;
+        }
+
+        .acompanhantes-section {
+          background-color: var(--branco);
+          border-radius: 16px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+          color: var(--azul-escuro);
+          margin-top: 30px;
+        }
+
+        .acompanhantes-section h2 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+          color: var(--laranja);
+          border-bottom: 2px solid var(--laranja);
+          padding-bottom: 8px;
+        }
+
+        .acompanhante-card {
+          border: 1px solid var(--laranja);
+          border-radius: 12px;
+          padding: 20px;
+          margin-bottom: 20px;
+          background-color: #f9f9f9;
+        }
+
+        .info-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1rem;
+          margin-bottom: 10px;
+        }
+
+        .btn-remover {
+          background-color: transparent;
+          color: var(--laranja);
+          border: 1px solid var(--laranja);
+          border-radius: 6px;
+          padding: 5px 10px;
+          font-size: 0.9rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .btn-remover:hover {
+          background-color: var(--laranja);
+          color: var(--branco);
+        }
+
+        @media (max-width: 600px) {
+          .info-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+          }
+
+          .btn-remover {
+            align-self: flex-end;
+          }
+        }
+
+        .container-email{
+          width: 50%;
+        }
+
+        .cadastrar-passageiros {
+          display: flex;
+          flex-direction: row;
+          justify-content: left;
+          gap: 12px;
+          margin: 30px 0;
+        }
+
+        .cadastrar-mensagem {
+          display: flex;
+          flex-direction: column;
+          justify-content: left;
+          gap: 12px;
+          margin: 30px 0;
+        }
+
+        .input-numero {
+          padding: 8px 10px;
+          font-size: 1rem;
+          border-radius: 8px;
+          border: 1px solid var(--laranja);
+          outline: none;
+          transition: border-color 0.3s ease;
+        }
+
+        .input-numero:focus {
+          border-color: var(--azul-escuro);
+        }
+
+        .btn-cadastrar {
+          background-color: var(--laranja);
+          color: var(--branco);
+          padding: 10px 20px;
+          font-size: 1rem;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-cadastrar:hover {
+          background-color: #e06b00;
+          transform: scale(1.03);
+        }
+
+        .btn-cadastrar:active {
+          transform: scale(0.98);
+        }
+
+        @media (max-width: 600px) {
+          .cadastrar-passageiros {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          .input-numero,
+          .btn-cadastrar {
+            width: 100%;
+          }
+        }
+
+        .btn-logout {
+          background-color: transparent;
+          color: var(--laranja);
+          border: 2px solid var(--laranja);
+          padding: 10px 20px;
+          font-size: 1rem;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+          background-color: var(--laranja);
+          color: var(--branco);
+          transform: scale(1.03);
+        }
+
+        .btn-logout:active {
+          transform: scale(0.97);
+        }
+      </style>
 </head>
-<header style="width: 100%;
+    <header style="width: 100%;
           background-color: orange;
           padding: 16px 0;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
           position: sticky;
           top: 0;
           z-index: 1000;
@@ -47,23 +457,22 @@
           font-size: 1.1rem;
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
-          border-radius: 8px;" href="Sobre.html">Sobre</a>
+          border-radius: 8px;" href="TelaSobreSkyline.php">Sobre</a>
             </nav>
-</header>
+    </header>
 <body>
     <div class="container">
-      <main class="main">
-        <section class="section">
+        <section class="info-section">
           <h2>Missão</h2>
           <p>Proporcionar experiências de viagem acessíveis, seguras e confortáveis para todos os nossos clientes, conectando destinos com excelência e comprometimento.</p>
         </section>
 
-        <section class="section">
+        <section class="info-section">
           <h2>Visão</h2>
           <p>Ser a empresa líder em vendas de passagens aéreas na América Latina, reconhecida pela inovação, sustentabilidade e atendimento ao cliente.</p>
         </section>
 
-        <section class="section">
+        <section class="info-section">
           <h2>Valores</h2>
           <ul>
             <li>Comprometimento com o cliente</li>
@@ -73,7 +482,6 @@
             <li>Excelência no atendimento</li>
           </ul>
         </section>
-      </main>
     </div>
     <div class="avaliação">
         <h2>Area de Contato</h2>
@@ -99,19 +507,19 @@
             </ul>
             </div>
           </div>
-        </div> 
-        <div class="aval">
-          <form action="#">
-            <br>
-            <input type="text" maxlength="200" autocomplete="on" placeholder="Nome">
-            <input type="email" placeholder="Email" autocomplete="on">
-            <input type="text" minlength="8" maxlength="20" placeholder="Titulo">
-            <input type="text" maxlength = "500" placeholder="Digite sua Mensagem">
-            <input class="env" type="submit" value="Enviar">
-
-          </form>
+        </div>
         </div>
     </div>
+    </div>
+    <div class="container-email">
+            <h3>Mande seu feedback aqui</h3>
+            <form action="#" class="cadastrar-mensagem">
+              <input type="text" maxlength="200" autocomplete="on" placeholder="Nome" class="input-numero">
+              <input type="email" placeholder="Email" autocomplete="on" class="input-numero">
+              <input type="text" minlength="8" maxlength="20" placeholder="Titulo" class="input-numero">
+              <input type="text" maxlength = "500" placeholder="Digite sua Mensagem" class="input-numero">
+              <input class="btn-cadastrar" type="submit" value="Enviar">
+            </form>
     </div>
 </body>
 </html>
