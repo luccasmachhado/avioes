@@ -1,24 +1,23 @@
-<?php
-    require_once(__DIR__ . '/../server/voo/get_voo_mais_usados.php');
-    require_once(__DIR__ . '/../server/linha_aerea/get_linha_aerea.php');
-    require_once(__DIR__ . '/../server/checkout_cache/cheackout_cache_delete.php');
-
-
-    require_once(__DIR__ . '/../server/checkout_cache/verificar_check.php');
-    require_once(__DIR__ . '/../server/usuario/logout.php');
-    
+<?php 
     if (session_status() === PHP_SESSION_NONE) {
     session_start();
     }
-    if (
-    isset($_SESSION['usuario']) ||
-    isset($_SESSION['usuario']['cpf']) ||
-    isset($_SESSION['usuario']['senha']) ||
-    isset($_SESSION['usuario']['id'])
-  ) {
-    $idOusuario = $_SESSION['usuario']['id'];
-    $check = verificarCheck($idOusuario);
-  }
+    require_once(__DIR__ . '/../server/voo/get_voo_mais_usados.php');
+    require_once(__DIR__ . '/../server/linha_aerea/get_linha_aerea.php');
+
+    if (!empty($_SESSION['usuario'])) {
+        require_once(__DIR__ . '/../server/checkout_cache/cheackout_cache_delete.php');
+    }
+
+
+    require_once(__DIR__ . '/../server/checkout_cache/verificar_check.php');
+    
+    if (session_status() === PHP_SESSION_ACTIVE && !empty($_SESSION['usuario'])) {
+    $idOusuario = ($_SESSION['usuario']['id']);
+    $check = verificarCheck($idOusuario);}
+    
+    require_once(__DIR__ . '/../server/usuario/logout.php');
+    
 
 
 ?>

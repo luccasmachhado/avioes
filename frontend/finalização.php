@@ -211,7 +211,7 @@ bilheteUsuario.innerHTML = `
 
 document.body.appendChild(bilheteUsuario);
 
-  if(passageiros.length > 1){
+  if(passageiros.length > 0){
   passageiros.forEach((p, index) => {
     const bilhete = document.createElement('div');
     bilhete.className = 'boarding-pass';

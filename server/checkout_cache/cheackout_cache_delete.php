@@ -4,16 +4,6 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
     }
-    if (
-    !isset($_SESSION['usuario']) ||
-    !isset($_SESSION['usuario']['cpf']) ||
-    !isset($_SESSION['usuario']['senha']) ||
-    !isset($_SESSION['usuario']['id'])
-  ) {
-    header('Location: http://localhost/skyline/frontend/login.html?msg=erro_nao_logado');
-    session_unset(); // limpa toda a sessão
-    exit;
-  }
     
     $pdo = getConnection();
     $idOusuario = $_SESSION['usuario']['id'];

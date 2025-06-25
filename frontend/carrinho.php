@@ -7,7 +7,7 @@ $voosUsuario = $_SESSION['voos_car_usuario'] ?? [];
 
 if (empty($voosUsuario)) {
     echo '<header style="width: 100%;
-          background-color: var(--laranja);
+          background-color: orange;
           padding: 16px 0;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
           position: sticky;

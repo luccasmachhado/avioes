@@ -54,7 +54,7 @@
         }
 
         #menu {
-          max-width: 1200px;
+          max-width: 1252px;
           margin: 0 auto;
           display: flex;
           justify-content: center;
@@ -112,7 +112,12 @@
           align-items: center;
           background-color: white;
           padding: 10px;
-          width: 100%;
+          width: 1280px;
+        }
+        .passagem{
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
         }
 
         .macroInformacoes {
@@ -122,7 +127,7 @@
         }
 
         .container-adm {
-          width: 100%;
+          width: 1252px;
         }
 
         .container-adm .info-section {
@@ -140,6 +145,7 @@
           border-radius: 16px;
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
           margin-bottom: 30px;
+          width: 1200px;
         }
 
         .welcome-container h1 {
@@ -460,6 +466,7 @@
           </div>
         </div>
       </div>
+      <div class="passagens">
       <?php
       foreach($voosUsuario as $item){
         $voo = $item['voo'];
@@ -492,5 +499,6 @@
         </div>
       </div>
       ';} ?>
+      </div>
     </body>
   </html>
