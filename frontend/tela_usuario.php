@@ -36,7 +36,7 @@
       <title>Perfil</title>
       <style>
         :root {
-          --laranja: #f57c00;
+          --laranja: rgb(0, 60, 255);
           --branco: #ffffff;
           --azul-escuro: #0d1b2a;
         }
@@ -287,7 +287,7 @@
         }
 
         .btn-modificar:hover {
-          background-color: #e06b00;
+          background-color: rgb(1, 31, 131);
           transform: scale(1.03);
         }
 
@@ -393,7 +393,7 @@
         }
 
         .btn-cadastrar:hover {
-          background-color: #e06b00;
+          background-color:rgb(1, 27, 114);
           transform: scale(1.03);
         }
 
@@ -482,7 +482,7 @@
       margin-bottom: 20px;
       color: var(--laranja);
       border-bottom: 2px solid var(--laranja);
-      padding-bottom: 8px;"><span>Passagem para '.$cidade['nome'].'</span></div>
+      padding-bottom: 8px;"><span>'.$cidade['pais'].'</span></div>
           <div class="passagens-section">
             <div class="info-section">
               <div class="passagem-card">

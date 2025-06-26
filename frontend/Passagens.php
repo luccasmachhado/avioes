@@ -46,7 +46,7 @@
 </head>
 <body>
     <header style="width: 100%;
-          background-color: orange;
+          background-color: rgb(0, 60, 255);
           padding: 16px 0;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
           position: sticky;
@@ -59,34 +59,34 @@
           justify-content: center;
           gap: 40px;
           flex-wrap: wrap;">
-            <a styele="color: var(--branco);
+            <a styele="color: color: white;
           text-decoration: none;
           font-weight: 600;
           font-size: 1.1rem;
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
           border-radius: 8px;" href="index.php">Home</a>
-            <a styele="color: var(--branco);
+            <a styele="color: white;
           text-decoration: none;
           font-weight: 600;
           font-size: 1.1rem;
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
           border-radius: 8px;" href="Passagens.php">Passagens</a>
-            <a styele="color: var(--branco);
+            <a styele="color: color: white;
           text-decoration: none;
           font-weight: 600;
           font-size: 1.1rem;
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
-          border-radius: 8px;" href="viagens.html">Viagens</a>
-            <a styele="color: var(--branco);
+          border-radius: 8px;" href="viagens.php">Viagens</a>
+            <a styele="color: color: white;
           text-decoration: none;
           font-weight: 600;
           font-size: 1.1rem;
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
-          border-radius: 8px;" href="TelaSobreSkyline.php">Sobre</a>
+          border-radius: 8px;" href="Sobre.html">Sobre</a>
             </nav>
     </header>
     <main>

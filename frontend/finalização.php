@@ -1,5 +1,6 @@
 <?php
   require_once(__DIR__ . '/../server/passagem/put_passagem.php');
+  require_once(__DIR__ . '/../server/passagem/verifica_passagem.php');
   require_once(__DIR__ . '/../server/checkout_cache/checkout_cache_get.php');
 
   if (
@@ -18,6 +19,14 @@
   $stmt->bindParam(':id', $$idOusuario);
   $stmt->execute();
   $passageiroAdm = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  $verificacao_quantidade_passagens = verificar_passagem_quant($idOusuario);
+
+  if (
+    $verificacao_quantidade_passagens == 1
+  ) {
+    echo "<script>localStorage.removeItem('passageiros');</script>";
+  }
 
   if (empty($_SESSION['usuario']['voosCarrinho'])) { 
     $voosCarrinho = get_checkout($_SESSION['usuario']['id']);
@@ -163,9 +172,55 @@
   </style>
 </head>
 <body>
-
+<header style="width: 100%;
+          background-color: rgb(0, 60, 255);
+          padding: 16px 0;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          margin-bottom: 30px;">
+          <nav style="max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          flex-wrap: wrap;">
+            <a styele="color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="index.php">Home</a>
+            <a styele="color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="Passagens.php">Passagens</a>
+            <a styele="color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="viagens.html">Viagens</a>
+            <a styele="color: var(--branco);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="TelaSobreSkyline.php">Sobre</a>
+            </nav>
+      </header>
 <script>
+
+
   const passageiros = JSON.parse(localStorage.getItem('passageiros')) || [];
+
   
   const voosCarrinho = <?php echo json_encode($voosCarrinho); ?>;
   const usuario = <?php echo json_encode($_SESSION['usuario']) ?>;
@@ -211,13 +266,12 @@ bilheteUsuario.innerHTML = `
 
 document.body.appendChild(bilheteUsuario);
 
-  if(passageiros && passageiros.length > 0){
+  if(passageiros && passageiros.some(p => p && p.nome && p.rg)){
   passageiros.forEach((p, index) => {
     const bilhete = document.createElement('div');
     bilhete.className = 'boarding-pass';
 
     const voo = voosCarrinho[index]?.voo || {}; // segurança contra erro de índice
-
     bilhete.innerHTML = `
       <div class="header">
         <div>PASSAGEM AÉREA</div>

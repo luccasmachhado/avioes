@@ -13,16 +13,10 @@
 
 /* ======================== CABEÇALHO E MENU ======================== */
 header {
-    background: url("Imagens/fundo.webp") no-repeat fixed;
-    background-position: right left;
-    background-size: cover;
-    height: 100vh;
-    text-align: center;
-    image-rendering: auto;
+
 }
 header > picture > img {
-    width: 500px;
-    margin: auto;
+
 }
 header> h2 {
     text-align: center;

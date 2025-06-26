@@ -1,7 +1,7 @@
 <?php
     require_once (__DIR__. '/../config/database.php');
     $pdo = getConnection();
-    $stmt = $pdo->prepare('SELECT * FROM voo ORDER BY assentos_disponiveis ASC, id ASC LIMIT 3');   
+    $stmt = $pdo->prepare('SELECT * FROM voo ORDER BY assentos_disponiveis ASC, id ASC LIMIT 1');   
     $stmt->execute();
     $todosVoos = [];
 

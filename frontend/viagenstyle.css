@@ -23,47 +23,7 @@ h1 {
 }
 
 /* ======================== SEÇÃO NAVEGAÇÃO ======================== */
-nav {
-  display: flex;
-  justify-content: right;
-  text-align: right;
-  padding: 10px;
-  height: 13.9vh;
-  background-image: linear-gradient(to bottom, #0000008f 5%, transparent);
-}
 
-nav#menu > a {
-  padding: 15px;
-  margin: 15px;
-  border: 1px solid white;
-  background-color: rgba(255, 255, 255, 0.212);
-  border-radius: 15px;
-  box-sizing: border-box;
-  min-width: 150px;
-  min-height: 50px;
-  text-align: center;
-  transition: 0.4s;
-}
-
-nav#menu a:hover {
-  font-size: 1.3em;
-  background-color: rgba(245, 245, 245, 0.247);
-  font-weight: normal;
-}
-
-
-/* ======================== SEÇÃO LINKS ======================== */
-a {
-  font-size: 1.2em;
-  font-family: "Inter", sans-serif;
-  text-decoration: none;
-  color: white;
-}
-
-a:hover {
-  font-weight: bold;
-  padding: 12px;
-}
 
 
 /* ======================== SEÇÃO CONTAINER ======================== */

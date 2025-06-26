@@ -1,55 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <script>
-        window.onload = function(){
-            const urlParams = new URLSearchParams(window.location.search);
-            if(urlParams.get('msg') === 'sucesso'){
-                alert("Cadastrado com sucesso! Faça seu Login!");
-            }
-            if(urlParams.get('msg') === 'falha'){
-                alert("CPF ou Senha Incorretos");
-            }
-            if(urlParams.get('msg') === 'erro_nao_logado'){
-                alert("É necessário estar logado para Acessar a seção!");
-            }
-            if(urlParams.get('msg') === 'logout_sucesso'){
-                alert("Logout bem sucedido");
-            } 
-        }
-    </script>
-    <link rel="stylesheet" href="loginstyle.css">
-    <link rel="shortcut icon" href="Imagens/Logoi2.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Skline</title>
+  <link rel="stylesheet" href="cadastro-login.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<style>
-</style>
-<body>
-    <header>
-        <nav id="menu">
-        <a class="opc" href="index.php">Home</a>
-        <a class="opc" href="Passagens.php">Passagens</a>
-        <a class="opc" href="viagens.html">Viagens</a>
-        <a class="opc" href="Sobre.html">Sobre</a>
-        <a class="opc" href="carrinho.php">Carrinho</a>
-    </nav>
+<header style="width: 100%;
+          background-color: rgb(0, 60, 255);
+          padding: 16px 0;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          margin-bottom: 30px;">
+          <nav style="max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          flex-wrap: wrap;">
+            <a styele="color: color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="index.php">Home</a>
+            <a styele="color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="Passagens.php">Passagens</a>
+            <a styele="color: color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="viagens.html">Viagens</a>
+            <a styele="color: color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;" href="TelaSobreSkyline.php">Sobre</a>
+            </nav>
     </header>
-    <div>
-        <form action="../server/usuario/get_usuario.php" method="post" class="login">
-            <a id="img" href="index.php">
-                <picture>
-                    <img src="Imagens/skylinelogo23.png" alt="">
-                </picture>
-            </a>
-            <label for="CPF"></label>
-            <input class="blur" type="text" name="cpf" required maxlength="11" autocomplete="on" placeholder="CPF">
-            <label for="senha"></label>
-            <input class="blur" type="password" name="senha" id="senha" placeholder="Senha" required minlength="6" maxlength="12">
-            <input type="submit" id="entra" value="Entrar">
-            <p>Você não tem cadastro?<a id="cad" href="cadastro.html">Faça Aqui</a></p>
-        </form>
-    </div>
+<body>
+  <div class="container">
+    <h2>Login - Skline</h2>
+    <form onsubmit="return validarLogin()" action="../server/usuario/get_usuario.php" method="post">
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" maxlength="11" name="cpf" />
+
+       <label for="senha">Senha</label>
+      <div class="senha-container">
+        <input type="password" id="senha" name="senha"/>
+        <i id="toggleSenha" class="fa-solid fa-eye olho"></i>
+      </div>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p>Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+  </div>
+
+  <script>
+    function validarLogin() {
+      const cpf = document.getElementById("cpf").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+
+      if (!cpf || !senha) {
+        alert("Por favor, preencha CPF e senha.");
+        return false;
+      }
+
+      alert("Login efetuado com sucesso!");
+      return true;
+    }
+      document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("toggleSenha");
+      const senhaInput = document.getElementById("senha");
+
+      toggle.addEventListener("click", function () {
+        const tipoAtual = senhaInput.getAttribute("type");
+        senhaInput.setAttribute("type", tipoAtual === "password" ? "text" : "password");
+
+        // Alterna ícone
+        toggle.classList.toggle("fa-eye");
+        toggle.classList.toggle("fa-eye-slash");
+      });
+    });
+  </script>
 </body>
 </html>

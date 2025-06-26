@@ -1,5 +1,6 @@
 <?php
   require_once(__DIR__ . '/../server/passagem/put_passagem.php');
+  require_once(__DIR__ . '/../server/passagem/verifica_passagem.php');
   require_once(__DIR__ . '/../server/checkout_cache/checkout_cache_get.php');
 
   if (
@@ -18,6 +19,15 @@
   $stmt->bindParam(':id', $$idOusuario);
   $stmt->execute();
   $passageiroAdm = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  $verificacao_quantidade_passagens = verificar_passagem_quant($idOusuario);
+
+  if (
+    $verificacao_quantidade_passagens == 1
+  ) {
+    header('Location: http://localhost/skyline/frontend/finalização.php');
+    exit;
+  }
 
   if (empty($_SESSION['usuario']['voosCarrinho'])) { 
     $voosCarrinho = get_checkout($_SESSION['usuario']['id']);
@@ -53,13 +63,12 @@ if(($_SESSION['usuario']['pcd']) == 1){
   <link rel="stylesheet" href="checkstyle.css" />
 </head>
 <header style="width: 100%;
-          background-color: orange;
+          background-color: rgb(0, 60, 255);
           padding: 16px 0;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
           position: sticky;
           top: 0;
-          z-index: 1000;
-          margin-bottom: 30px;">
+          z-index: 1000;">
           <nav style="max-width: 1200px;
           margin: 0 auto;
           display: flex;
@@ -95,7 +104,7 @@ if(($_SESSION['usuario']['pcd']) == 1){
           padding: 8px 16px;
           border-radius: 8px;" href="TelaSobreSkyline.php">Sobre</a>
             </nav>
-</header>
+      </header>
 <body>
   <div class="top-bar">
     <span>✈️ Checkout</span>

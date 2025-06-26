@@ -44,9 +44,6 @@
                 if(urlParams.get('mensagem') === 'add_car_sucesso'){
                     alert("O item foi adicionado ao carrinho!");
                 }
-                if(urlParams.get('mensagem') === 'add_car_sucesso'){
-                    alert("O item foi adicionado ao carrinho!");
-                }
                 if(urlParams.get('mensagem') === 'compra_finalizada'){
                     alert("Compra Finalizada");
                 }
@@ -70,19 +67,57 @@
     </script>
 </head>
 <body>
-    <header>
-    <nav id="menu"> 
-        <a class="opc" href="Passagens.php">Passagens</a>
-        <a class="opc" href="viagens.html">Viagens</a>
-        <a class="opc" href="Sobre.html">Sobre</a>
-        <a class="opc" href="carrinho.php">Carrinho</a>
+    <header style="width: 100%;
+          background-color: rgb(0, 60, 255);
+          padding: 16px 0;
+          margin-bottom: 30px;">
+    <nav style="max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          flex-wrap: wrap;" id="menu"> 
+        <a class="opc" href="Passagens.php" styele="color: color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;">Passagens</a>
+        <a class="opc" href="viagens.php" styele="color: color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;">Viagens</a>
+        <a class="opc" href="Sobre.html" styele="color: color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;">Sobre</a>
+        <a class="opc" href="carrinho.php" styele="color: color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;">Carrinho</a>
          <?php if (
             !isset($_SESSION['usuario']) ||
             !isset($_SESSION['usuario']['cpf']) ||
             !isset($_SESSION['usuario']['senha']) ||
             !isset($_SESSION['usuario']['id'])
         ) { 
-            echo '<a class="opc" href="login.html">Login</a>';
+            echo '<a class="opc" href="login.html" styele="color: color: white;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: color 0.3s ease, transform 0.2s ease;
+          padding: 8px 16px;
+          border-radius: 8px;">Login</a>';
         }else{
             $inicial = strtoupper(substr($_SESSION['usuario']['nome'], 0, 1));
             echo '<div class="perfil-quadrante">
@@ -110,7 +145,7 @@
     <main>
         <section class="container" id="destinos">
             <div class="destino">
-                <h3>Seu próximo destino inesquecível começa aqui. Confira os lugares visitados abaixo!</h3>
+                <h3>Seu próximo destino inesquecível começa aqui. Confira a cidade mais visitada abaixo!</h3>
             </div>
                 <section class="container" id="destinos">
                     <?php

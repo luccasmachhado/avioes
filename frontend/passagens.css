@@ -35,7 +35,7 @@ header {
 }
 
 #menu .opc:hover {
-  color: #ff7f00;
+  background-color: rgb(0, 60, 255);
 }
 
 /* Formulário de busca */
@@ -54,7 +54,7 @@ header {
 }
 
 .search .buttonSear {
-  background-color: #ff7f00;
+  background-color: rgb(0, 60, 255);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -62,7 +62,7 @@ header {
 }
 
 .search button:hover {
-  background-color: #e66900;
+  background-color: rgb(20, 2, 182);
 }
 
 .destopc {
