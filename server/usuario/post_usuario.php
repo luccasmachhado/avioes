@@ -37,7 +37,7 @@ if(isset(
         exit;
 
     } catch(PDOException $e){
-        echo json_encode(['error' => 'Erro ao cadastrar'. $e->getMessage()]);
+        header('Location: ../../frontend/cadastro.html?msg=falhaCadastro');
     }
 }else{
     echo json_encode(["error" => "Os atributos \" Nome Completo \", \" Cpf \", \" Email \", \" Senha \", \" Data de Nascimento \" são igualmente necessários. "]);

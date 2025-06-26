@@ -40,14 +40,14 @@ if (empty($voosUsuario)) {
           font-size: 1.1rem;
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
-          border-radius: 8px;" href="viagens.html">Viagens</a>
+          border-radius: 8px;" href="viagens.php">Viagens</a>
             <a styele="color: var(--branco);
           text-decoration: none;
           font-weight: 600;
           font-size: 1.1rem;
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
-          border-radius: 8px;" href="TelaSobreSkyline.php">Sobre</a>
+          border-radius: 8px;" href="Sobre.html">Sobre</a>
             </nav>
       </header><p>Nenhum voo no carrinho.</p>';
     exit;
@@ -112,7 +112,7 @@ if (empty($voosUsuario)) {
           font-size: 1.1rem;
           transition: color 0.3s ease, transform 0.2s ease;
           padding: 8px 16px;
-          border-radius: 8px;" href="viagens.html">Viagens</a>
+          border-radius: 8px;" href="viagens.php">Viagens</a>
             <a styele="color: var(--branco);
           text-decoration: none;
           font-weight: 600;

@@ -24,7 +24,7 @@ if (session_status() === PHP_SESSION_NONE) {
 </head>
 <body>
   <header style="
-          background-color: rgb(0, 60, 255);
+          background-color: #103778;
           margin-bottom: 30px;">
     <nav style="max-width: 1200px;
           margin: 0 auto;

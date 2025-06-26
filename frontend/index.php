@@ -69,7 +69,6 @@
 <body>
     <header style="width: 100%;
           background-color: rgb(0, 60, 255);
-          padding: 16px 0;
           margin-bottom: 30px;">
     <nav style="max-width: 1200px;
           margin: 0 auto;
@@ -192,6 +191,25 @@
                 </div>
             </section>
         </section>
+        <section id="Promo">
+            <h2>Promoções Imperdíveis – Skyline Viagens</h2>
+          <div id="textpromo0">
+            <div id="textpromo1">
+                <p class="textp">Na Skyline, você encontra promoções exclusivas para transformar seu sonho de viajar em realidade — com preços que cabem no seu bolso e destinos que vão muito além das suas expectativas.</p>
+           </div>
+           <div id="textpromo2">
+            <p class="textp">Passagens com até 30% de desconto para os destinos mais procurados do mundo.</p>
+
+           </div>
+           <div id="textpromo3">
+            <p class="textp">Pacotes completos com hospedagem e passeios incluídos por preços especiais.</p>
+
+           </div>
+           <div id="textpromo4">
+            <p class="textp">Válido por tempo limitado. Promoções sujeitas à disponibilidade e regulamento.</p>
+           </div>
+          </div>
+        </section>
         <section id="Planos">
             <h2>Skyline – Viagens para todos, com planos pensados para você</h2>
             <section id="planosOpc">
@@ -235,26 +253,6 @@
                     </ul>
                 </div>
             </section>
-        </section>
-        <section id="Promo">
-            <h2>Promoções Imperdíveis – Skyline Viagens</h2>
-            <h3>Viajar bem não precisa custar caro!</h3>
-          <div id="textpromo0">
-            <div id="textpromo1">
-                <p class="textp">Na Skyline, você encontra promoções exclusivas para transformar seu sonho de viajar em realidade — com preços que cabem no seu bolso e destinos que vão muito além das suas expectativas.</p>
-           </div>
-           <div id="textpromo2">
-            <p class="textp">Passagens com até 30% de desconto para os destinos mais procurados do mundo.</p>
-
-           </div>
-           <div id="textpromo3">
-            <p class="textp">Pacotes completos com hospedagem e passeios incluídos por preços especiais.</p>
-
-           </div>
-           <div id="textpromo4">
-            <p class="textp">Válido por tempo limitado. Promoções sujeitas à disponibilidade e regulamento.</p>
-           </div>
-          </div>
         </section>
     </main>
 </body>
